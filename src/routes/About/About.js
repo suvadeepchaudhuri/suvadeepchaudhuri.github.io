@@ -1,8 +1,10 @@
 import React from "react";
+import "./About.scss";
+import TimelineItem from "../../components/Timeline-Item/Timeline-Item"
 
 export default function About() {
   return (
-    <div>
+    <div className="about-component">
       <h2>About</h2>
       <div className="about">
         <div className="intro">
@@ -10,6 +12,10 @@ export default function About() {
           <div className="intro__text"></div>
         </div>
         <div  className="picture"></div>
+      </div>
+      <h2>Timeline</h2>
+      <div className="timeline">
+        <TimelineItem/>
       </div>
     </div>
   );

@@ -1,0 +1,47 @@
+.about-component {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    // justify-content: center;
+    align-items: center;
+
+    .about {
+        width: 100%;
+        border-radius: 5px;
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+
+        .intro {
+            width: 40%;
+            margin-right: 20px;
+            &__title {
+                border-radius: 5px;
+                height: 50px;
+                background-color: lightslategray;
+            }
+
+            &__text {
+                border-radius: 5px;
+                height: 200px;
+                background-color: lightgray;
+                margin-top: 10px;
+            }
+        }
+
+        .picture {
+            border-radius: 5px;
+            height: 200px;
+            width: 200px;
+            background-color: gray;
+        }
+    }
+
+    .timeline {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+}

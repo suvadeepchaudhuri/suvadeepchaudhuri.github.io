@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="171" height="327" viewBox="0 0 171 327">
+  <g id="CPU" transform="translate(-1615 -716)">
+    <g id="FRAME" transform="translate(1615 716)" fill="#2f2d2d" stroke="#707070" stroke-width="4">
+      <rect width="171" height="327" rx="13" stroke="none"/>
+      <rect x="2" y="2" width="167" height="323" rx="11" fill="none"/>
+    </g>
+    <g id="BODY-LIGHT-4" transform="matrix(0.766, 0.643, -0.643, 0.766, 1774.788, 731.425)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="50" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="49" fill="none"/>
+    </g>
+    <g id="BODY-LIGHT-1" transform="matrix(0.766, -0.643, 0.643, 0.766, 1622.648, 733.996)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="50" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="49" fill="none"/>
+    </g>
+    <g id="BODY-LIGHT-5" transform="translate(1742.25 775.861)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="207" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="206" fill="none"/>
+    </g>
+    <g id="BODY-LIGHT-2" transform="translate(1654.25 775.861)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="207" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="206" fill="none"/>
+    </g>
+    <g id="BODY-LIGHT-6" transform="matrix(0.766, -0.643, 0.643, 0.766, 1742.648, 988.996)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="50" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="49" fill="none"/>
+    </g>
+    <g id="BODY-LIGHT-3" transform="matrix(0.766, 0.643, -0.643, 0.766, 1654.788, 986.425)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="50" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="49" fill="none"/>
+    </g>
+    <g id="GPU">
+      <g id="GPU-CARD" transform="translate(1676 895)" stroke="#707070" stroke-width="2">
+        <rect width="49" height="123" rx="5" stroke="none"/>
+        <rect x="1" y="1" width="47" height="121" rx="4" fill="none"/>
+      </g>
+      <g id="GPU-F1">
+        <g id="GPU-F1-BG" transform="translate(1686 903)" fill="#fff" stroke="#707070" stroke-width="1">
+          <circle cx="15" cy="15" r="15" stroke="none"/>
+          <circle cx="15" cy="15" r="14.5" fill="none"/>
+        </g>
+        <g id="GPU-F1-BLADE" transform="translate(1699 905)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="4" height="26" rx="1" stroke="none"/>
+          <rect x="0.5" y="0.5" width="3" height="25" rx="0.5" fill="none"/>
+        </g>
+        <g id="GPU-F1-C" transform="translate(1696 913)" fill="#fff" stroke="#707070" stroke-width="1">
+          <circle cx="5" cy="5" r="5" stroke="none"/>
+          <circle cx="5" cy="5" r="4.5" fill="none"/>
+        </g>
+      </g>
+      <g id="GPU-F2">
+        <g id="GPU-F2-BG" transform="translate(1686 977)" fill="#fff" stroke="#707070" stroke-width="1">
+          <circle cx="15" cy="15" r="15" stroke="none"/>
+          <circle cx="15" cy="15" r="14.5" fill="none"/>
+        </g>
+        <g id="GPU-F2-BLADE" transform="translate(1699 979)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="4" height="26" rx="1" stroke="none"/>
+          <rect x="0.5" y="0.5" width="3" height="25" rx="0.5" fill="none"/>
+        </g>
+        <g id="GPU-F2-C" transform="translate(1696 987)" fill="#fff" stroke="#707070" stroke-width="1">
+          <circle cx="5" cy="5" r="5" stroke="none"/>
+          <circle cx="5" cy="5" r="4.5" fill="none"/>
+        </g>
+      </g>
+      <g id="SLOT" transform="translate(1734 1017) rotate(90)" fill="#fff" stroke="#707070" stroke-width="2">
+        <rect width="4" height="66" stroke="none"/>
+        <rect x="1" y="1" width="2" height="64" fill="none"/>
+      </g>
+    </g>
+    <g id="POWER">
+      <g id="BUTTON" transform="translate(1686 735)" fill="#fff" stroke="#707070" stroke-width="1">
+        <circle cx="15" cy="15" r="15" stroke="none"/>
+        <circle cx="15" cy="15" r="14.5" fill="none"/>
+      </g>
+      <line id="Line_2" data-name="Line 2" y2="15" transform="translate(1701.5 742.5)" fill="none" stroke="#707070" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
