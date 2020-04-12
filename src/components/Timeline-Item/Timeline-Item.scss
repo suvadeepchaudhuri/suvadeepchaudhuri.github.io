@@ -1,6 +1,29 @@
 .item {
-    width: 80%;
-    height: 50px;
-    border: 1px solid black;
-    margin: 5px 10px;
+    width: 50vw;
+    // height: 10vh;
+    margin: 20px 5px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    .time-point {
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+
+        &__link {
+            width: 200px;
+            height: 1px;
+            border-bottom: 1px dashed black;
+        }
+    }
+
+    .time-story {
+        min-height: 50px;
+        width: 50vw;
+        border-radius: 5px;
+        border: 1px solid rgba(214,214,214,1);
+        box-shadow: 5px 5px 5px 0px rgba(214,214,214,1);
+    }
 }

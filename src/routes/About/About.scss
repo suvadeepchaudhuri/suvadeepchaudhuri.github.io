@@ -38,10 +38,19 @@
     }
 
     .timeline {
-        margin-top: 20px;
-        width: 100%;
+        margin: 20px;
+        width: 70%;
         display: flex;
         flex-flow: column;
-        align-items: center;
+        align-items: left;
+        border-left: 1px dashed black;
+
+        .connector {
+            height: 100px;
+            width: 1px;
+            border-left: 1px solid black;
+            margin-left: 20px;
+            top: -50px;
+        }
     }
 }

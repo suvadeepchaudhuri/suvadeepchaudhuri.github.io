@@ -16,6 +16,9 @@ export default function About() {
       <h2>Timeline</h2>
       <div className="timeline">
         <TimelineItem/>
+        <TimelineItem/>
+        <TimelineItem/>
+        {/* <div className="connector"></div> */}
       </div>
     </div>
   );
