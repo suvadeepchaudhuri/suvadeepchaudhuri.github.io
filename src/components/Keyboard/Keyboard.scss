@@ -2,6 +2,11 @@
     width: 600px;
     height: 200px;
     // border: 1px solid black;
+
+    .keyboard-key:hover {
+        cursor: pointer;
+        @extend .backlit;
+    }
 }
 
 .backlit {
