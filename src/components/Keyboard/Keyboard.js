@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "./Keyboard.scss";
-import "../../tailwind.output.css";
-// import KeyboardResource from './Keyboard_pa.svg';
 import $ from "jquery";
 import { findDOMNode } from "react-dom";
 
@@ -16,16 +14,7 @@ export default class Keyboard extends Component {
 
   backlitColorCode = "#39FF96";
 
-  componentDidMount() {
-    // let svgItem = this.refs.button29;
-    // svgItem.addEventListener("click", () => {
-    //   // alert("caps");
-    //   svgItem.setAttribute("fill", this.backlitColorCode);
-    //   setTimeout(() => {
-    //     svgItem.setAttribute("fill", "#fff");
-    //   }, 200);
-    // });
-  }
+  componentDidMount() {}
 
   keyPressAction(context, value) {
     console.log(context);
@@ -41,18 +30,7 @@ export default class Keyboard extends Component {
   render() {
     return (
       <div className="keyboard">
-        <div className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10 rounded-lg shadow-xl">
-          <div className="ml-6 pt-1">
-            <h1 className="text-2xl text-blue-700 leading-tight">
-              Tailwind and Create React App
-            </h1>
-            <p className="text-base text-gray-700 leading-normal">
-              Building apps together
-            </p>
-          </div>
-        </div>
-        <div id="textX">PG</div>
-        <div ref="typingArea">jjjjj</div>
+        <div ref="typingArea"></div>
         <svg
           id="kbd"
           xmlns="http://www.w3.org/2000/svg"
@@ -85,8 +63,18 @@ export default class Keyboard extends Component {
               <rect x="0.5" y="0.5" width="465" height="153" fill="none" />
             </g>
             <g id="Row1">
-              <g id="Key" transform="translate(782 752)">
-                <g id="button" fill="#fff" stroke="#707070" strokeWidth="3">
+              <g
+                id="Key"
+                className="keyboard-key"
+                transform="translate(782 752)"
+              >
+                <g
+                  id="button"
+                  fill="#fff"
+                  stroke="#707070"
+                  strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button", "1")}
+                >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
                     x="1.5"
@@ -101,21 +89,28 @@ export default class Keyboard extends Component {
                   data-name="1"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     1
                   </tspan>
                 </text>
               </g>
-              <g id="Key-2" data-name="Key" transform="translate(751 752)">
+              <g
+                id="Key-2"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(751 752)"
+              >
                 <g
-                  id="button-2"
+                  ref="button2"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button2", "~ `")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -131,21 +126,28 @@ export default class Keyboard extends Component {
                   data-name="~`"
                   transform="translate(7.5 17.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
-                    ~`
+                    ~ `
                   </tspan>
                 </text>
               </g>
-              <g id="Key-3" data-name="Key" transform="translate(906 752)">
+              <g
+                id="Key-3"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(906 752)"
+              >
                 <g
-                  id="button-3"
+                  ref="button3"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button3", "5")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -161,21 +163,28 @@ export default class Keyboard extends Component {
                   data-name="5"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     5
                   </tspan>
                 </text>
               </g>
-              <g id="Key-4" data-name="Key" transform="translate(844 752)">
+              <g
+                id="Key-4"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(844 752)"
+              >
                 <g
-                  id="button-4"
+                  ref="button4"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button4", "3")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -191,21 +200,28 @@ export default class Keyboard extends Component {
                   data-name="3"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     3
                   </tspan>
                 </text>
               </g>
-              <g id="Key-5" data-name="Key" transform="translate(968 752)">
+              <g
+                id="Key-5"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(968 752)"
+              >
                 <g
-                  id="button-5"
+                  ref="button5"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button5", "7")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -221,21 +237,28 @@ export default class Keyboard extends Component {
                   data-name="7"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     7
                   </tspan>
                 </text>
               </g>
-              <g id="Key-6" data-name="Key" transform="translate(1030 752)">
+              <g
+                id="Key-6"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(1030 752)"
+              >
                 <g
-                  id="button-6"
+                  ref="button6"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button6", "9")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -251,21 +274,28 @@ export default class Keyboard extends Component {
                   data-name="9"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     9
                   </tspan>
                 </text>
               </g>
-              <g id="Key-7" data-name="Key" transform="translate(1123 752)">
+              <g
+                id="Key-7"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(1123 752)"
+              >
                 <g
-                  id="button-7"
+                  ref="button7"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button7", "+ =")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -282,20 +312,26 @@ export default class Keyboard extends Component {
                   transform="translate(6.5 13.43)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     + =
                   </tspan>
                 </text>
               </g>
-              <g id="Key-8" data-name="Key" transform="translate(813 752)">
+              <g
+                id="Key-8"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(813 752)"
+              >
                 <g
-                  id="button-8"
+                  ref="button8"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button8", "2")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -311,21 +347,28 @@ export default class Keyboard extends Component {
                   data-name="2"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     2
                   </tspan>
                 </text>
               </g>
-              <g id="Key-9" data-name="Key" transform="translate(937 752)">
+              <g
+                id="Key-9"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(937 752)"
+              >
                 <g
-                  id="button-9"
+                  ref="button9"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button9", "6")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -341,21 +384,28 @@ export default class Keyboard extends Component {
                   data-name="6"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     6
                   </tspan>
                 </text>
               </g>
-              <g id="Key-10" data-name="Key" transform="translate(875 752)">
+              <g
+                id="Key-10"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(875 752)"
+              >
                 <g
-                  id="button-10"
+                  ref="button10"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button10", "4")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -371,21 +421,28 @@ export default class Keyboard extends Component {
                   data-name="4"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     4
                   </tspan>
                 </text>
               </g>
-              <g id="Key-11" data-name="Key" transform="translate(999 752)">
+              <g
+                id="Key-11"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(999 752)"
+              >
                 <g
-                  id="button-11"
+                  ref="button11"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button11", "8")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -401,21 +458,28 @@ export default class Keyboard extends Component {
                   data-name="8"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     8
                   </tspan>
                 </text>
               </g>
-              <g id="Key-12" data-name="Key" transform="translate(1092 752)">
+              <g
+                id="Key-12"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(1092 752)"
+              >
                 <g
-                  id="button-12"
+                  ref="button12"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button12", "- _")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -431,21 +495,28 @@ export default class Keyboard extends Component {
                   data-name="-_"
                   transform="translate(6.5 12.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
-                    -_
+                    - _
                   </tspan>
                 </text>
               </g>
-              <g id="Key-13" data-name="Key" transform="translate(1061 752)">
+              <g
+                id="Key-13"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(1061 752)"
+              >
                 <g
-                  id="button-13"
+                  ref="button13"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button13", "0")}
                 >
                   <rect width="27" height="20.859" stroke="none" />
                   <rect
@@ -461,21 +532,28 @@ export default class Keyboard extends Component {
                   data-name="0"
                   transform="translate(7.5 16.43)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     0
                   </tspan>
                 </text>
               </g>
-              <g id="Key-14" data-name="Key" transform="translate(1154 752)">
+              <g
+                id="Key-14"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(1154 752)"
+              >
                 <g
-                  id="button-14"
+                  ref="button14"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button14", "Del")}
                 >
                   <rect width="45" height="20.859" stroke="none" />
                   <rect
@@ -491,7 +569,7 @@ export default class Keyboard extends Component {
                   transform="translate(14.75 14.537)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Del
@@ -500,14 +578,20 @@ export default class Keyboard extends Component {
               </g>
             </g>
             <g id="Row2">
-              <g id="Key-15" data-name="Key" transform="translate(264 25)">
+              <g
+                id="Key-15"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(264 25)"
+              >
                 <g
-                  id="button-15"
+                  ref="button15"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button15", "I")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -516,22 +600,29 @@ export default class Keyboard extends Component {
                   id="I"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     I
                   </tspan>
                 </text>
               </g>
-              <g id="Key-16" data-name="Key" transform="translate(-1 25)">
+              <g
+                id="Key-16"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(-1 25)"
+              >
                 <g
-                  id="button-16"
+                  ref="button16"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button16", "Tab")}
                 >
                   <rect width="43.5" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="40.5" height="25" fill="none" />
@@ -540,22 +631,29 @@ export default class Keyboard extends Component {
                   id="Tab"
                   transform="translate(764.894 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Tab
                   </tspan>
                 </text>
               </g>
-              <g id="Key-17" data-name="Key" transform="translate(140 25)">
+              <g
+                id="Key-17"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(140 25)"
+              >
                 <g
-                  id="button-17"
+                  ref="button17"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button17", "R")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -564,22 +662,29 @@ export default class Keyboard extends Component {
                   id="R"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     R
                   </tspan>
                 </text>
               </g>
-              <g id="Key-18" data-name="Key" transform="translate(78 25)">
+              <g
+                id="Key-18"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(78 25)"
+              >
                 <g
-                  id="button-18"
+                  ref="button18"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button18", "W")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -588,22 +693,29 @@ export default class Keyboard extends Component {
                   id="W"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     W
                   </tspan>
                 </text>
               </g>
-              <g id="Key-19" data-name="Key" transform="translate(202 25)">
+              <g
+                id="Key-19"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(202 25)"
+              >
                 <g
-                  id="button-19"
+                  ref="button19"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button19", "Y")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -612,22 +724,29 @@ export default class Keyboard extends Component {
                   id="Y"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Y
                   </tspan>
                 </text>
               </g>
-              <g id="Key-20" data-name="Key" transform="translate(326 25)">
+              <g
+                id="Key-20"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(326 25)"
+              >
                 <g
-                  id="button-20"
+                  ref="button20"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button20", "P")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -636,22 +755,29 @@ export default class Keyboard extends Component {
                   id="P"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     P
                   </tspan>
                 </text>
               </g>
-              <g id="Key-21" data-name="Key" transform="translate(295 25)">
+              <g
+                id="Key-21"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(295 25)"
+              >
                 <g
-                  id="button-21"
+                  ref="button21"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button21", "O")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -660,22 +786,29 @@ export default class Keyboard extends Component {
                   id="O"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     O
                   </tspan>
                 </text>
               </g>
-              <g id="Key-22" data-name="Key" transform="translate(357 25)">
+              <g
+                id="Key-22"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(357 25)"
+              >
                 <g
-                  id="button-22"
+                  ref="button22"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button22", "} [")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -686,21 +819,27 @@ export default class Keyboard extends Component {
                   transform="translate(761.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
-                    } [
+                    [ {"{"} 
                   </tspan>
                 </text>
               </g>
-              <g id="Key-23" data-name="Key" transform="translate(388 25)">
+              <g
+                id="Key-23"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(388 25)"
+              >
                 <g
-                  id="button-23"
+                  ref="button23"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button23", "} ]")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -711,21 +850,27 @@ export default class Keyboard extends Component {
                   transform="translate(761.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     } ]
                   </tspan>
                 </text>
               </g>
-              <g id="Key-24" data-name="Key" transform="translate(419 25)">
+              <g
+                id="Key-24"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(419 25)"
+              >
                 <g
-                  id="button-24"
+                  ref="button24"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button24", "| \\")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -736,21 +881,27 @@ export default class Keyboard extends Component {
                   transform="translate(761.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     | \
                   </tspan>
                 </text>
               </g>
-              <g id="Key-25" data-name="Key" transform="translate(47 25)">
+              <g
+                id="Key-25"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(47 25)"
+              >
                 <g
-                  id="button-25"
+                  ref="button25"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button25", "Q")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -759,22 +910,29 @@ export default class Keyboard extends Component {
                   id="Q"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Q
                   </tspan>
                 </text>
               </g>
-              <g id="Key-26" data-name="Key" transform="translate(171 25)">
+              <g
+                id="Key-26"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(171 25)"
+              >
                 <g
-                  id="button-26"
+                  ref="button26"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button26", "T")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -783,22 +941,29 @@ export default class Keyboard extends Component {
                   id="T"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     T
                   </tspan>
                 </text>
               </g>
-              <g id="Key-27" data-name="Key" transform="translate(109 25)">
+              <g
+                id="Key-27"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(109 25)"
+              >
                 <g
-                  id="button-27"
+                  ref="button27"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button27", "E")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -807,22 +972,29 @@ export default class Keyboard extends Component {
                   id="E"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     E
                   </tspan>
                 </text>
               </g>
-              <g id="Key-28" data-name="Key" transform="translate(233 25)">
+              <g
+                id="Key-28"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(233 25)"
+              >
                 <g
-                  id="button-28"
+                  ref="button28"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button28", "U")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -831,8 +1003,9 @@ export default class Keyboard extends Component {
                   id="U"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     U
@@ -868,7 +1041,7 @@ export default class Keyboard extends Component {
                     fontSize="10"
                     data-name="Caps Lock"
                     strokeWidth="1"
-                    fontFamily="HelveticaNeue, Helvetica Neue"
+                    fontFamily="Arial, Helvetica, sans-serif"
                   >
                     <tspan x="0" y="0">
                       Caps Lock
@@ -877,110 +1050,148 @@ export default class Keyboard extends Component {
                 </g>
               </g>
 
-              <g id="Key-30" data-name="Key" transform="translate(61 57)">
+              <g
+                id="Key-30"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(61 57)"
+              >
                 <g
-                  id="button-30"
+                  ref="button30"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button30", "A")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
+
+                  <text
+                    transform="translate(7 18)"
+                    fill="#707070"
+                    fontSize="15"
+                    fontWeight="100"
+                    data-name="A"
+                    strokeWidth="1"
+                    fontFamily="Arial, Helvetica, sans-serif, Sans Serif"
+                  >
+                    <tspan x="0" y="0">
+                      A
+                    </tspan>
+                  </text>
                 </g>
-                <text
-                  id="A"
-                  transform="translate(759.5 772)"
-                  fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
-                >
-                  <tspan x="0" y="0">
-                    A
-                  </tspan>
-                </text>
               </g>
-              <g id="Key-31" data-name="Key" transform="translate(123 57)">
+
+              <g
+                id="Key-31"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(123 57)"
+              >
                 <g
-                  id="button-31"
+                  ref="button31"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button31", "D")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
+                  <text
+                    id="D"
+                    transform="translate(7 19)"
+                    fill="#707070"
+                    fontSize="15"
+                    strokeWidth="0.5"
+                    fontFamily="Arial, Helvetica, sans-serif"
+                  >
+                    <tspan x="0" y="0">
+                      D
+                    </tspan>
+                  </text>
                 </g>
-                <text
-                  id="D"
-                  transform="translate(759.5 772)"
-                  fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
-                >
-                  <tspan x="0" y="0">
-                    D
-                  </tspan>
-                </text>
               </g>
-              <g id="Key-32" data-name="Key" transform="translate(185 57)">
+              <g
+                id="Key-32"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(185 57)"
+              >
                 <g
-                  id="button-32"
+                  ref="button32"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button32", "G")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
+
+                  <text
+                    id="G"
+                    transform="translate(7 19)"
+                    fill="#707070"
+                    fontSize="15"
+                    strokeWidth="0.5"
+                    fontFamily="Arial, Helvetica, sans-serif"
+                  >
+                    <tspan x="0" y="0">
+                      G
+                    </tspan>
+                  </text>
                 </g>
-                <text
-                  id="G"
-                  transform="translate(759.5 772)"
-                  fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
-                >
-                  <tspan x="0" y="0">
-                    G
-                  </tspan>
-                </text>
               </g>
-              <g id="Key-33" data-name="Key" transform="translate(247 57)">
+              <g
+                id="Key-33"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(247 57)"
+              >
                 <g
-                  id="button-33"
+                  ref="button33"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button33", "J")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
                 </g>
                 <text
                   id="J"
-                  transform="translate(759.5 772)"
+                  transform="translate(7 19)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     J
                   </tspan>
                 </text>
               </g>
-              <g id="Key-34" data-name="Key" transform="translate(309 57)">
+              <g
+                id="Key-34"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(309 57)"
+              >
                 <g
-                  id="button-34"
+                  ref="button34"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button34", "L")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -989,22 +1200,29 @@ export default class Keyboard extends Component {
                   id="L"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     L
                   </tspan>
                 </text>
               </g>
-              <g id="Key-35" data-name="Key" transform="translate(92 57)">
+              <g
+                id="Key-35"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(92 57)"
+              >
                 <g
-                  id="button-35"
+                  ref="button35"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button35", "S")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1013,22 +1231,29 @@ export default class Keyboard extends Component {
                   id="S"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     S
                   </tspan>
                 </text>
               </g>
-              <g id="Key-36" data-name="Key" transform="translate(154 57)">
+              <g
+                id="Key-36"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(154 57)"
+              >
                 <g
-                  id="button-36"
+                  ref="button36"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button36", "F")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1037,22 +1262,29 @@ export default class Keyboard extends Component {
                   id="F"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     F
                   </tspan>
                 </text>
               </g>
-              <g id="Key-37" data-name="Key" transform="translate(216 57)">
+              <g
+                id="Key-37"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(216 57)"
+              >
                 <g
-                  id="button-37"
+                  ref="button37"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button37", "H")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1061,22 +1293,29 @@ export default class Keyboard extends Component {
                   id="H"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     H
                   </tspan>
                 </text>
               </g>
-              <g id="Key-38" data-name="Key" transform="translate(278 57)">
+              <g
+                id="Key-38"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(278 57)"
+              >
                 <g
-                  id="button-38"
+                  ref="button38"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button38", "K")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1085,22 +1324,29 @@ export default class Keyboard extends Component {
                   id="K"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     K
                   </tspan>
                 </text>
               </g>
-              <g id="Key-39" data-name="Key" transform="translate(340 57)">
+              <g
+                id="Key-39"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(340 57)"
+              >
                 <g
-                  id="button-39"
+                  ref="button39"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button39", ": ;")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1111,21 +1357,27 @@ export default class Keyboard extends Component {
                   transform="translate(761.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     : ;
                   </tspan>
                 </text>
               </g>
-              <g id="Key-40" data-name="Key" transform="translate(371 57)">
+              <g
+                id="Key-40"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(371 57)"
+              >
                 <g
-                  id="button-40"
+                  ref="button40"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button40", "“ ‘")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1136,7 +1388,7 @@ export default class Keyboard extends Component {
                   transform="translate(760.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     “ ‘
@@ -1159,7 +1411,7 @@ export default class Keyboard extends Component {
                   transform="translate(1171.394 829.436)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Enter
@@ -1168,14 +1420,20 @@ export default class Keyboard extends Component {
               </g>
             </g>
             <g id="Row4">
-              <g id="Key-41" data-name="Key" transform="translate(-1 89)">
+              <g
+                id="Key-41"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(-1 89)"
+              >
                 <g
-                  id="button-41"
+                  ref="button41"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button41", "Shift")}
                 >
                   <rect width="67.598" height="28" stroke="none" />
                   <rect
@@ -1191,21 +1449,27 @@ export default class Keyboard extends Component {
                   transform="translate(773.992 770)"
                   fill="#707070"
                   fontSize="12"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Shift
                   </tspan>
                 </text>
               </g>
-              <g id="Key-42" data-name="Key" transform="translate(71 89)">
+              <g
+                id="Key-42"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(71 89)"
+              >
                 <g
-                  id="button-42"
+                  ref="button42"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button42", "Z")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1214,22 +1478,29 @@ export default class Keyboard extends Component {
                   id="Z"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Z
                   </tspan>
                 </text>
               </g>
-              <g id="Key-43" data-name="Key" transform="translate(195 89)">
+              <g
+                id="Key-43"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(195 89)"
+              >
                 <g
-                  id="button-43"
+                  ref="button43"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button43", "B")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1238,22 +1509,29 @@ export default class Keyboard extends Component {
                   id="B"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     B
                   </tspan>
                 </text>
               </g>
-              <g id="Key-44" data-name="Key" transform="translate(133 89)">
+              <g
+                id="Key-44"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(133 89)"
+              >
                 <g
-                  id="button-44"
+                  ref="button44"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button44", "C")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1262,22 +1540,29 @@ export default class Keyboard extends Component {
                   id="C"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     C
                   </tspan>
                 </text>
               </g>
-              <g id="Key-45" data-name="Key" transform="translate(257 89)">
+              <g
+                id="Key-45"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(257 89)"
+              >
                 <g
-                  id="button-45"
+                  ref="button45"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button45", "M")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1286,22 +1571,29 @@ export default class Keyboard extends Component {
                   id="M"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     M
                   </tspan>
                 </text>
               </g>
-              <g id="Key-46" data-name="Key" transform="translate(319 89)">
+              <g
+                id="Key-46"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(319 89)"
+              >
                 <g
-                  id="button-46"
+                  ref="button46"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button46", "> .")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1312,21 +1604,27 @@ export default class Keyboard extends Component {
                   transform="translate(759.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     &gt; .
                   </tspan>
                 </text>
               </g>
-              <g id="Key-47" data-name="Key" transform="translate(102 89)">
+              <g
+                id="Key-47"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(102 89)"
+              >
                 <g
-                  id="button-47"
+                  ref="button47"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button47", "X")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1335,22 +1633,29 @@ export default class Keyboard extends Component {
                   id="X"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     X
                   </tspan>
                 </text>
               </g>
-              <g id="Key-48" data-name="Key" transform="translate(226 89)">
+              <g
+                id="Key-48"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(226 89)"
+              >
                 <g
-                  id="button-48"
+                  ref="button48"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button48", "N")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1359,22 +1664,29 @@ export default class Keyboard extends Component {
                   id="N"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     N
                   </tspan>
                 </text>
               </g>
-              <g id="Key-49" data-name="Key" transform="translate(164 89)">
+              <g
+                id="Key-49"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(164 89)"
+              >
                 <g
-                  id="button-49"
+                  ref="button49"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button49", "V")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1383,22 +1695,29 @@ export default class Keyboard extends Component {
                   id="V"
                   transform="translate(759.5 772)"
                   fill="#707070"
-                  fontSize="16"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontSize="15"
+                  strokeWidth="0.5"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     V
                   </tspan>
                 </text>
               </g>
-              <g id="Key-50" data-name="Key" transform="translate(288 89)">
+              <g
+                id="Key-50"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(288 89)"
+              >
                 <g
-                  id="button-50"
+                  ref="button50"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button50", "< ,")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1409,21 +1728,27 @@ export default class Keyboard extends Component {
                   transform="translate(759.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     &lt; ,
                   </tspan>
                 </text>
               </g>
-              <g id="Key-51" data-name="Key" transform="translate(350 89)">
+              <g
+                id="Key-51"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(350 89)"
+              >
                 <g
-                  id="button-51"
+                  ref="button51"
                   data-name="button"
                   transform="translate(752 752)"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button51", "? /")}
                 >
                   <rect width="27" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="25" fill="none" />
@@ -1434,7 +1759,7 @@ export default class Keyboard extends Component {
                   transform="translate(759.5 770)"
                   fill="#707070"
                   fontSize="10"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     ? /
@@ -1444,11 +1769,12 @@ export default class Keyboard extends Component {
               <g id="Up">
                 <g
                   id="Key-52"
+                  className="keyboard-key"
                   data-name="Key"
                   transform="translate(1137 847.635)"
                 >
                   <g
-                    id="button-52"
+                    ref="button52"
                     data-name="button"
                     fill="#fff"
                     stroke="#707070"
@@ -1481,11 +1807,12 @@ export default class Keyboard extends Component {
             <g id="Row5">
               <g id="Key-53" data-name="Key" transform="translate(751 873.635)">
                 <g
-                  id="button-53"
+                  ref="button53"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button53", "Fn")}
                 >
                   <rect width="27" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="18" fill="none" />
@@ -1495,20 +1822,26 @@ export default class Keyboard extends Component {
                   transform="translate(6.5 14.009)"
                   fill="#707070"
                   fontSize="12"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Fn
                   </tspan>
                 </text>
               </g>
-              <g id="Key-54" data-name="Key" transform="translate(813 873.635)">
+              <g
+                id="Key-54"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(813 873.635)"
+              >
                 <g
-                  id="button-54"
+                  ref="button54"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button54", "Opt")}
                 >
                   <rect width="27" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="18" fill="none" />
@@ -1518,7 +1851,7 @@ export default class Keyboard extends Component {
                   transform="translate(7.5 13.009)"
                   fill="#707070"
                   fontSize="8"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Opt
@@ -1531,11 +1864,12 @@ export default class Keyboard extends Component {
                 transform="translate(1071 873.635)"
               >
                 <g
-                  id="button-55"
+                  ref="button55"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button55", "Opt")}
                 >
                   <rect width="27" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="18" fill="none" />
@@ -1546,20 +1880,26 @@ export default class Keyboard extends Component {
                   transform="translate(7.5 13.009)"
                   fill="#707070"
                   fontSize="8"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Opt
                   </tspan>
                 </text>
               </g>
-              <g id="Key-56" data-name="Key" transform="translate(782 873.635)">
+              <g
+                id="Key-56"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(782 873.635)"
+              >
                 <g
-                  id="button-56"
+                  ref="button56"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button56", "Ctrl")}
                 >
                   <rect width="27" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="18" fill="none" />
@@ -1569,20 +1909,26 @@ export default class Keyboard extends Component {
                   transform="translate(7.5 13.009)"
                   fill="#707070"
                   fontSize="8"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Ctrl
                   </tspan>
                 </text>
               </g>
-              <g id="Key-57" data-name="Key" transform="translate(844 873.635)">
+              <g
+                id="Key-57"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(844 873.635)"
+              >
                 <g
-                  id="button-57"
+                  ref="button57"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button57", "Cmd")}
                 >
                   <rect width="27" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="18" fill="none" />
@@ -1592,7 +1938,7 @@ export default class Keyboard extends Component {
                   transform="translate(5.5 13.587)"
                   fill="#707070"
                   fontSize="8"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Cmd
@@ -1601,15 +1947,17 @@ export default class Keyboard extends Component {
               </g>
               <g
                 id="Key-58"
+                className="keyboard-key"
                 data-name="Key"
                 transform="translate(1040 873.635)"
               >
                 <g
-                  id="button-58"
+                  ref="button58"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button58", "Cmd")}
                 >
                   <rect width="27" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="24" height="18" fill="none" />
@@ -1620,20 +1968,26 @@ export default class Keyboard extends Component {
                   transform="translate(5.5 13.587)"
                   fill="#707070"
                   fontSize="8"
-                  fontFamily="HelveticaNeue, Helvetica Neue"
+                  fontFamily="Arial, Helvetica, sans-serif"
                 >
                   <tspan x="0" y="0">
                     Cmd
                   </tspan>
                 </text>
               </g>
-              <g id="Key-59" data-name="Key" transform="translate(875 873.635)">
+              <g
+                id="Key-59"
+                className="keyboard-key"
+                data-name="Key"
+                transform="translate(875 873.635)"
+              >
                 <g
-                  id="button-59"
+                  ref="button59"
                   data-name="button"
                   fill="#fff"
                   stroke="#707070"
                   strokeWidth="3"
+                  onClick={this.keyPressAction.bind(this, "button59", " ")}
                 >
                   <rect width="161" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="158" height="18" fill="none" />
@@ -1642,15 +1996,17 @@ export default class Keyboard extends Component {
               <g id="Up-2" data-name="Up" transform="translate(0 26)">
                 <g
                   id="Key-60"
+                  className="keyboard-key"
                   data-name="Key"
                   transform="translate(1137 847.635)"
                 >
                   <g
-                    id="button-60"
+                    ref="button60"
                     data-name="button"
                     fill="#fff"
                     stroke="#707070"
                     strokeWidth="3"
+                    onClick={this.keyPressAction.bind(this, "button60", "↓")}
                   >
                     <rect width="31.089" height="21" stroke="none" />
                     <rect
@@ -1678,15 +2034,17 @@ export default class Keyboard extends Component {
               <g id="Up-3" data-name="Up" transform="translate(35 26)">
                 <g
                   id="Key-61"
+                  className="keyboard-key"
                   data-name="Key"
                   transform="translate(1137 847.635)"
                 >
                   <g
-                    id="button-61"
+                    ref="button61"
                     data-name="button"
                     fill="#fff"
                     stroke="#707070"
                     strokeWidth="3"
+                    onClick={this.keyPressAction.bind(this, "button61", "→")}
                   >
                     <rect width="31.089" height="21" stroke="none" />
                     <rect
@@ -1714,15 +2072,17 @@ export default class Keyboard extends Component {
               <g id="Up-4" data-name="Up" transform="translate(-35 26)">
                 <g
                   id="Key-62"
+                  className="keyboard-key"
                   data-name="Key"
                   transform="translate(1137 847.635)"
                 >
                   <g
-                    id="button-62"
+                    ref="button62"
                     data-name="button"
                     fill="#fff"
                     stroke="#707070"
                     strokeWidth="3"
+                    onClick={this.keyPressAction.bind(this, "button62", "←")}
                   >
                     <rect width="31.089" height="21" stroke="none" />
                     <rect
