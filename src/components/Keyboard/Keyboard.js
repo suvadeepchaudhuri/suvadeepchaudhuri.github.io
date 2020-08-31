@@ -19,9 +19,7 @@ export default class Keyboard extends Component {
   componentDidMount() {}
 
   keyPressAction(context, value) {
-    // console.log(context);
-    // console.log(value);
-    value = value.trim();
+    value = value!==' ' ? value.trim() : value;
     let svgItem = this.refs[context];
     svgItem.setAttribute("fill", this.backlitColorCode);
     setTimeout(() => {
@@ -37,13 +35,12 @@ export default class Keyboard extends Component {
       this.typedText += value;
     }
     this.refs.typingArea.innerHTML = this.typedText;
-    // this.refs.typingArea.innerHTML = context + "" + value;
   }
 
   render() {
     return (
       <div className="keyboard">
-        <div ref="typingArea" className="typingArea"></div>
+        <div className="typingArea"><span ref="typingArea"></span><span className="cursorSpan">|</span></div>
         <svg
           id="kbd"
           xmlns="http://www.w3.org/2000/svg"
