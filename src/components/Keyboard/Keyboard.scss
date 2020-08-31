@@ -2,6 +2,9 @@
     width: 600px;
     height: 200px;
     // border: 1px solid black;
+    .keyboard-key {
+        user-select: none;
+    }
 
     .keyboard-key:hover {
         cursor: pointer;
@@ -12,4 +15,17 @@
 .backlit {
     fill: #39FF96;
     color: red;
+}
+
+.typingArea {
+    border: 2px solid green;
+    min-width: 300px;
+    min-height: 100px;
+    background-color: black;
+    color: #39FF96;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
 }
