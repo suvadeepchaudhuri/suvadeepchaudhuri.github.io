@@ -24,27 +24,144 @@ export default class Keyboard extends Component {
   keyboardFrameOuterBorderColor = "";
   keyboardFrameOuterInsetColor = "#707070";
 
+  isShiftEnabled = false;
+  shiftKeyRef = "";
+  isCapsEnabled = false;
+  capsKeyRef = "";
+
   componentDidMount() {}
 
-  keyPressAction(context, value) {
-    value = value !== " " ? value.trim() : value;
-    let svgItem = this.refs[context];
-    svgItem.setAttribute("fill", this.backlitColor);
-    setTimeout(() => {
-      svgItem.setAttribute("fill", "#fff");
-    }, 100);
-
-    // console.log("Value: ", value);
-    // console.log("typedText: ", this.typedText);
-
-    if (value === "Del") {
-      if (this.typedText.length > 0) {
-        this.typedText = this.typedText.slice(0, this.typedText.length - 1);
-      }
+  one_by_one(objects_array, iterator, callback) {
+    var start_promise = objects_array.reduce(function (prom, object) {
+      return prom.then(function () {
+        return iterator(object);
+      });
+    }, Promise.resolve()); // initial
+    if (callback) {
+      start_promise.then(callback);
     } else {
-      this.typedText += value;
+      return start_promise;
     }
-    this.refs.typingArea.innerHTML = this.typedText;
+  }
+
+  executeKeyboardLightEffect(context, value) {
+    if (value === "1 !") {
+      let _this = this;
+      let i = 1;
+      let lightupKeys = [];
+      let action = Promise.resolve();
+      while (i < 10) {
+        let contextVal = "button_" + i;
+        setTimeout(() => {
+          _this.flashKey(_this.refs[contextVal], 100);
+        }, 300);
+        i++;
+      }
+    }
+  }
+
+  flashKey(key, time = 100, isPromise = false) {
+    if (isPromise) {
+      return Promise.resolve().then(() => {
+        key.setAttribute("fill", this.backlitColor);
+        setTimeout(() => {
+          key.setAttribute("fill", this.keyBackgroundColor);
+        }, time);
+      });
+    }
+    key.setAttribute("fill", this.backlitColor);
+    setTimeout(() => {
+      key.setAttribute("fill", this.keyBackgroundColor);
+    }, time);
+  }
+
+  /**
+   * Function to execute actions based on the key that was pressed on the SVG OSK.
+   *
+   * @private
+   * @function
+   * @param {string} context
+   * @param {string} value
+   */
+  keyPressAction(context, value) {
+    value = value.trim().toLowerCase();
+    this.executeKeyboardLightEffect(context, value);
+    switch (value) {
+      case "caps":
+        if (this.isCapsEnabled) {
+          this.isCapsEnabled = false;
+          this.capsKeyRef.setAttribute("fill", this.keyBackgroundColor);
+        } else {
+          this.isCapsEnabled = true;
+          this.capsKeyRef = this.refs[context];
+          this.capsKeyRef.setAttribute("fill", this.backlitColor);
+        }
+        break;
+      case "del":
+        if (this.typedText.length > 0) {
+          this.typedText = this.typedText.slice(0, this.typedText.length - 1);
+        }
+        this.flashKey(this.refs[context]);
+        break;
+      case "enter":
+        this.typedText += "\n";
+        this.flashKey(this.refs[context]);
+        break;
+      case "shift":
+        if (this.isShiftEnabled) {
+          this.isShiftEnabled = false;
+          this.shiftKeyRef.setAttribute("fill", this.keyBackgroundColor);
+        } else {
+          this.isShiftEnabled = true;
+          this.shiftKeyRef = this.refs[context];
+          this.shiftKeyRef.setAttribute("fill", this.backlitColor);
+        }
+        break;
+      case "space":
+        this.typedText += " ";
+        this.flashKey(this.refs[context]);
+        break;
+      case "tab":
+        this.typedText += "\t";
+        this.flashKey(this.refs[context]);
+        break;
+      case "ctrl":
+        // do nothing
+        this.flashKey(this.refs[context]);
+        break;
+      case "cmd":
+        // do nothing
+        this.flashKey(this.refs[context]);
+        break;
+      case "opt":
+        // do nothing
+        this.flashKey(this.refs[context]);
+        break;
+      case "fn":
+        // do nothing
+        this.flashKey(this.refs[context]);
+        break;
+      default:
+        if (this.isShiftEnabled) {
+          if (value.includes(" ")) {
+            this.typedText += value.split(" ")[1];
+          } else {
+            this.typedText += value.toUpperCase();
+          }
+          // reset shift
+          this.isShiftEnabled = false;
+          this.shiftKeyRef.setAttribute("fill", this.keyBackgroundColor);
+        } else {
+          if (value.includes(" ")) {
+            this.typedText += value.split(" ")[0];
+          } else {
+            this.typedText += this.isCapsEnabled ? value.toUpperCase() : value;
+          }
+        }
+        this.flashKey(this.refs[context]);
+        break;
+    }
+    this.refs["typingArea"].innerHTML = "<pre>" + this.typedText + "</pre>";
   }
 
   render() {
@@ -944,11 +1061,7 @@ export default class Keyboard extends Component {
                   fill={this.keyBackgroundColor}
                   stroke={this.keyBorderColor}
                   strokeWidth={this.keyBorderStrokeWidth}
-                  onClick={this.keyPressAction.bind(
-                    this,
-                    "button29",
-                    "Caps Lock"
-                  )}
+                  onClick={this.keyPressAction.bind(this, "button29", "Caps")}
                 >
                   <rect width="58" height="28" stroke="none" />
                   <rect x="1.5" y="1.5" width="55" height="25" fill="none" />
@@ -1897,7 +2010,7 @@ export default class Keyboard extends Component {
                   fill={this.keyBackgroundColor}
                   stroke={this.keyBorderColor}
                   strokeWidth={this.keyBorderStrokeWidth}
-                  onClick={this.keyPressAction.bind(this, "button59", " ")}
+                  onClick={this.keyPressAction.bind(this, "button59", "space")}
                 >
                   <rect width="161" height="21" stroke="none" />
                   <rect x="1.5" y="1.5" width="158" height="18" fill="none" />

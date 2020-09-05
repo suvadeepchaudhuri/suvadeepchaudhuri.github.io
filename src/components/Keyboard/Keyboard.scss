@@ -29,6 +29,10 @@
   padding: 10px;
   text-align: left;
 
+  pre {
+      display: inline;
+  }
+  
   .cursorSpan {
     animation: blink-animation 1s steps(5, start) infinite;
   }
