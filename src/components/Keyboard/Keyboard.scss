@@ -1,9 +1,21 @@
 .keyboard {
   width: 600px;
-  height: 200px;
-  // border: 1px solid black;
+  height: 600px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
   .keyboard-key {
     user-select: none;
+  }
+
+  #kbd {
+    // margin-left: 20px;
+  }
+  @media (max-width:767px) {
+    svg {
+        transform: scale(0.8);
+        margin-left: -50px;
+      }
   }
 
   .keyboard-key:hover {
@@ -19,7 +31,8 @@
 
 .typingArea {
   border: 2px solid green;
-  min-width: 300px;
+  width: 300px;
+  min-width: 100px;
   min-height: 100px;
   background-color: black;
   color: #39ff96;
@@ -28,6 +41,11 @@
   margin: 10px;
   padding: 10px;
   text-align: left;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   pre {
       display: inline;
