@@ -105,24 +105,25 @@ export default class Keyboard extends Component {
   capsKeyRef = "button_caps";
 
   executeKeyboardLightEffect(context, value) {
-    if (value === "1 !") {
-      let _this = this;
-      let i = 1;
-      let lightupKeys = [];
-      while (i < 10) {
-        let contextVal = "button_" + i;
-        lightupKeys.push(_this.refs[contextVal]);
-        // setTimeout(() => {
-        //   _this.flashKey(_this.refs[contextVal], 100);
-        // }, 300);
-        i++;
-      }
-      this.execSequentially(lightupKeys, (item) =>
-        setTimeout(() => {
-          this.flashKey(item);
-        }, 500)
-      );
-    }
+    console.log(this.refs[context]);
+    // if (value === "1 !") {
+    //   let _this = this;
+    //   let i = 1;
+    //   let lightupKeys = [];
+    //   while (i < 10) {
+    //     let contextVal = "button_" + i;
+    //     lightupKeys.push(_this.refs[contextVal]);
+    //     // setTimeout(() => {
+    //     //   _this.flashKey(_this.refs[contextVal], 100);
+    //     // }, 300);
+    //     i++;
+    //   }
+    //   this.execSequentially(lightupKeys, (item) =>
+    //     setTimeout(() => {
+    //       this.flashKey(item);
+    //     }, 500)
+    //   );
+    // }
   }
 
   flashKey(key, time = 100) {
@@ -220,7 +221,14 @@ export default class Keyboard extends Component {
         this.flashKey(this.refs[context]);
         break;
     }
-    this.refs["typingArea"].innerHTML = "<pre>" + this.typedText + "</pre>";
+    this.setTextOnMonitor();
+  }
+
+  setTextOnMonitor(){
+    this.props.setScreenText(this.typedText);
+    // if(this.refs["typingArea"]) {
+    //   this.refs["typingArea"].innerHTML = "<pre>" + this.typedText + "</pre>";
+    // }
   }
 
   handleKeyDown(event, callback) {
@@ -240,10 +248,10 @@ export default class Keyboard extends Component {
   render() {
     return (
       <div className="keyboard">
-        <div className="typingArea" onKeyDown={this.handleKeyDown} tabIndex="0">
+        {/* <div className="typingArea" onKeyDown={this.handleKeyDown} tabIndex="0">
           <span ref="typingArea"></span>
           <span className="cursorSpan">|</span>
-        </div>
+        </div> */}
         <div className="keyboard-svg">
           <svg
             id="kbd"

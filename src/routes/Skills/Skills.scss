@@ -1,0 +1,26 @@
+.skills {
+  display: flex;
+  flex-flow: column;
+  &__section {
+    border: 1px solid lightgrey;
+    margin: 20px 10px;
+    .section-title {
+      background-color: lightgrey;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 5px;
+    }
+
+    .skills-container {
+      display: flex;
+      width: 70vw;
+      flex-wrap: wrap;
+      padding: 10px;
+
+      .skill-pill {
+        margin: 5px 10px;
+      }
+    }
+  }
+}
