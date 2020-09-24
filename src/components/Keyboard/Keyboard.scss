@@ -6,15 +6,13 @@
     user-select: none;
   }
 
+  @media screen and (max-width: 400px) {
+    transform: scale(0.7);
+  }
+
   #kbd {
     // margin-left: 20px;
     // transform: scale(0.8);
-  }
-  @media (max-width:767px) {
-    svg {
-        transform: scale(0.8);
-        margin-left: -50px;
-      }
   }
 
   .keyboard-key:hover {

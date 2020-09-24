@@ -15,7 +15,7 @@ export default class Keyboard extends Component {
   }
 
   componentDidMount() {
-    this.typeWelcomeMessage();
+    // this.typeWelcomeMessage();
     // this.greetUser();
   }
 
@@ -135,6 +135,18 @@ export default class Keyboard extends Component {
     }
   }
 
+  activateKey(key){
+    if (key) {
+      key.setAttribute("fill", this.backlitColor);
+    }
+  }
+
+  deActivateKey(key){
+    if (key) {
+      key.setAttribute("fill", this.keyBackgroundColor);
+    }
+  }
+
   /**
    * Function to execute actions based on the key that was pressed on the SVG OSK.
    *
@@ -150,11 +162,11 @@ export default class Keyboard extends Component {
       case "caps":
         if (this.isCapsEnabled) {
           this.isCapsEnabled = false;
-          this.capsKeyRef.setAttribute("fill", this.keyBackgroundColor);
+          this.deActivateKey(this.capsKeyRef);
         } else {
           this.isCapsEnabled = true;
           this.capsKeyRef = this.refs[context];
-          this.capsKeyRef.setAttribute("fill", this.backlitColor);
+          this.activateKey(this.capsKeyRef);
         }
         break;
       case "del":
@@ -170,11 +182,11 @@ export default class Keyboard extends Component {
       case "shift":
         if (this.isShiftEnabled) {
           this.isShiftEnabled = false;
-          this.shiftKeyRef.setAttribute("fill", this.keyBackgroundColor);
+          this.deActivateKey(this.shiftKeyRef);
         } else {
           this.isShiftEnabled = true;
           this.shiftKeyRef = this.refs[context];
-          this.shiftKeyRef.setAttribute("fill", this.backlitColor);
+          this.activateKey(this.shiftKeyRef);
         }
         break;
       case "space":
@@ -210,7 +222,7 @@ export default class Keyboard extends Component {
           }
           // reset shift
           this.isShiftEnabled = false;
-          this.shiftKeyRef.setAttribute("fill", this.keyBackgroundColor);
+          this.deActivateKey(this.shiftKeyRef);
         } else {
           if (value.includes(" ")) {
             this.typedText += value.split(" ")[0];

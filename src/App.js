@@ -18,6 +18,13 @@ class App extends React.Component {
     super(props);
   }
 
+
+  mediaSmall = false;
+  componentDidMount(){
+    this.mediaSmall = window.matchMedia('(max-width: 400px)').matches;
+    console.log(window.matchMedia('(max-width: 400px)'));
+  }
+
   /**
    * The state of the Application route
    *
@@ -28,10 +35,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Router>
-          <header className="App-header">
-            <div className="app-navigation">
+          <header className="app-header">
+            <button className="btn btn-menu">
+              <div className="btn-line"/>
+              <div className="btn-line"/>
+              <div className="btn-line"/>
+            </button>
+            <nav className={"app-navigation " + (this.mediaSmall ? "app-navigation--drawer":"")}>
               <ul className="home-menu">
                 <li>
                   <NavLink
@@ -75,7 +87,7 @@ class App extends React.Component {
                   Dark Mode
                 </li>
               </ul> */}
-            </div>
+            </nav>
           </header>
           <Redirect exact from="/" to="/home" />
 
