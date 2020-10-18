@@ -16,14 +16,26 @@ import Resources from "./routes/Resources/Resources";
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {isMobile: false}
   }
 
-
-  mediaSmall = false;
   componentDidMount(){
+    window.addEventListener("resize", this.setScreen());
+    window.addEventListener("deviceorientation", this.setScreen());
+    
     this.mediaSmall = window.matchMedia('(max-width: 400px)').matches;
-    console.log(window.matchMedia('(max-width: 400px)'));
+    console.log('.matches: ',window.matchMedia('(max-width: 400px)').matches);
   }
+
+  setScreen() {
+    console.log(window);
+    if(window.innerWidth < 576)
+    {
+      this.setState({isMobile:true});
+    }
+    
+}
 
   /**
    * The state of the Application route
@@ -43,7 +55,7 @@ class App extends React.Component {
               <div className="btn-line"/>
               <div className="btn-line"/>
             </button>
-            <nav className={"app-navigation " + (this.mediaSmall ? "app-navigation--drawer":"")}>
+            <nav className={this.state.isMobile ? "app-navigation--drawer":"app-navigation"}>
               <ul className="home-menu">
                 <li>
                   <NavLink
