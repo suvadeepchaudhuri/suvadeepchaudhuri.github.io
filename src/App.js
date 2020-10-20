@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
+import "./styles/common.scss";
 import "./App.scss";
 import {
   BrowserRouter as Router,
@@ -16,26 +17,27 @@ import Resources from "./routes/Resources/Resources";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleMenu = this.toggleMenu.bind(this);
 
-    this.state = {isMobile: false}
+    this.state = { isMobile: false, showMenu: false };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     window.addEventListener("resize", this.setScreen());
     window.addEventListener("deviceorientation", this.setScreen());
-    
-    this.mediaSmall = window.matchMedia('(max-width: 400px)').matches;
-    console.log('.matches: ',window.matchMedia('(max-width: 400px)').matches);
   }
 
   setScreen() {
     console.log(window);
-    if(window.innerWidth < 576)
-    {
-      this.setState({isMobile:true});
+    if (window.innerWidth < 576) {
+      this.setState({ isMobile: true });
     }
-    
-}
+  }
+
+  toggleMenu() {
+    this.setState({ showMenu: !this.state.showMenu });
+    console.log(JSON.stringify(this.state));
+  }
 
   /**
    * The state of the Application route
@@ -46,22 +48,39 @@ class App extends React.Component {
   state;
 
   render() {
+    let menuButton;
+    if (this.state.isMobile) {
+      menuButton = (
+        <button
+          className={"btn btn-menu" + (this.state.showMenu ? " close" : "")}
+          onClick={this.toggleMenu}
+        >
+          <div className="btn-line" />
+          <div className="btn-line" />
+          <div className="btn-line" />
+        </button>
+      );
+    }
     return (
       <div className="app">
         <Router>
           <header className="app-header">
-            <button className="btn btn-menu">
-              <div className="btn-line"/>
-              <div className="btn-line"/>
-              <div className="btn-line"/>
-            </button>
-            <nav className={this.state.isMobile ? "app-navigation--drawer":"app-navigation"}>
+            {menuButton}
+            <nav
+              className={
+                this.state.isMobile
+                  ? "app-navigation--drawer " +
+                    (this.state.showMenu ? "app-navigation--drawer__show" : "app-navigation--drawer__hide")
+                  : "app-navigation"
+              }
+            >
               <ul className="home-menu">
                 <li>
                   <NavLink
                     className="home-menu__link"
                     activeClassName="home-menu__link-active"
                     to="/home"
+                    onClick={this.toggleMenu}
                   >
                     Home
                   </NavLink>
@@ -71,6 +90,7 @@ class App extends React.Component {
                     className="home-menu__link"
                     activeClassName="home-menu__link-active"
                     to="/skills"
+                    onClick={this.toggleMenu}
                   >
                     Skills
                   </NavLink>
@@ -80,6 +100,7 @@ class App extends React.Component {
                     className="home-menu__link"
                     activeClassName="home-menu__link-active"
                     to="/resources"
+                    onClick={this.toggleMenu}
                   >
                     Resources
                   </NavLink>
@@ -89,6 +110,7 @@ class App extends React.Component {
                     className="home-menu__link"
                     activeClassName="home-menu__link-active"
                     to="/about"
+                    onClick={this.toggleMenu}
                   >
                     About
                   </NavLink>

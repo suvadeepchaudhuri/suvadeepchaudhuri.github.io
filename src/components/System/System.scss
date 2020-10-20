@@ -1,6 +1,17 @@
+@import "../../styles/variables";
+
 .System {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+
+    .desk {
+        width: 800px;
+        height: 3px;
+        border: 1px solid darkslategray;
+        border-radius: 5px;
+        background-color: darkslategray;
+        margin-bottom: 5px;
+    }
 }

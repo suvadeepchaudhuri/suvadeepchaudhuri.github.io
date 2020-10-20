@@ -18,6 +18,7 @@ export default class System extends Component {
     return (
       <div className="System">
         <Monitor screenText={this.state.screenText}/>
+        {/* <div className="desk"></div> */}
         <Keyboard setScreenText={this.setScreenText.bind(this)}/>
       </div>
     );

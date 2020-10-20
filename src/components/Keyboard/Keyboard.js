@@ -284,7 +284,7 @@ export default class Keyboard extends Component {
                 strokeLinejoin="round"
                 strokeWidth="10"
               >
-                <rect width="500" height="184.75" stroke="none" />
+                <rect width="500" height="184.75" stroke="none" rx="10"/>
                 <rect x="5" y="5" width="490" height="174.75" fill="none" />
               </g>
               <g
