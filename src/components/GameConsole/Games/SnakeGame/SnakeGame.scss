@@ -1,0 +1,12 @@
+.snake-game {
+  padding: 10px;
+  //   border: 1px solid blue;
+
+  &__score {
+    color: white;
+  }
+
+  canvas {
+    border: 1px solid green;
+  }
+}

@@ -70,7 +70,9 @@ class App extends React.Component {
               className={
                 this.state.isMobile
                   ? "app-navigation--drawer " +
-                    (this.state.showMenu ? "app-navigation--drawer__show" : "app-navigation--drawer__hide")
+                    (this.state.showMenu
+                      ? "app-navigation--drawer__show"
+                      : "app-navigation--drawer__hide")
                   : "app-navigation"
               }
             >
@@ -82,7 +84,7 @@ class App extends React.Component {
                     to="/home"
                     onClick={this.toggleMenu}
                   >
-                    Home
+                    Intro
                   </NavLink>
                 </li>
                 <li>
@@ -92,7 +94,7 @@ class App extends React.Component {
                     to="/skills"
                     onClick={this.toggleMenu}
                   >
-                    Skills
+                    Work
                   </NavLink>
                 </li>
                 <li>
@@ -102,7 +104,7 @@ class App extends React.Component {
                     to="/resources"
                     onClick={this.toggleMenu}
                   >
-                    Resources
+                    Things
                   </NavLink>
                 </li>
                 <li>
@@ -112,7 +114,7 @@ class App extends React.Component {
                     to="/about"
                     onClick={this.toggleMenu}
                   >
-                    About
+                    Who
                   </NavLink>
                 </li>
               </ul>
