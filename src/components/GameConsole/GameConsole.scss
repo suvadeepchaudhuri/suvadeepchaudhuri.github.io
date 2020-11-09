@@ -8,3 +8,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.console-dpad {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  width: 50%;
+
+  div {
+    text-align: center;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
+import { ReactComponent as ThemeIcon } from "./theme_icon.svg";
 import "./styles/common.scss";
 import "./App.scss";
 import {
@@ -13,10 +14,11 @@ import Home from "./routes/Home/Home";
 import About from "./routes/About/About";
 import Skills from "./routes/Skills/Skills";
 import Resources from "./routes/Resources/Resources";
+import { GlobalProvider, GlobalConsumer } from "./context-stores/global-store";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.toggleMenu = this.toggleMenu.bind(this);
 
     this.state = { isMobile: false, showMenu: false };
@@ -62,87 +64,100 @@ class App extends React.Component {
       );
     }
     return (
-      <div className="app">
-        <Router>
-          <header className="app-header">
-            {menuButton}
-            <nav
-              className={
-                this.state.isMobile
-                  ? "app-navigation--drawer " +
-                    (this.state.showMenu
-                      ? "app-navigation--drawer__show"
-                      : "app-navigation--drawer__hide")
-                  : "app-navigation"
-              }
-            >
-              <ul className="home-menu">
-                <li>
-                  <NavLink
-                    className="home-menu__link"
-                    activeClassName="home-menu__link-active"
-                    to="/home"
-                    onClick={this.toggleMenu}
-                  >
-                    Intro
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="home-menu__link"
-                    activeClassName="home-menu__link-active"
-                    to="/skills"
-                    onClick={this.toggleMenu}
-                  >
-                    Work
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="home-menu__link"
-                    activeClassName="home-menu__link-active"
-                    to="/resources"
-                    onClick={this.toggleMenu}
-                  >
-                    Things
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="home-menu__link"
-                    activeClassName="home-menu__link-active"
-                    to="/about"
-                    onClick={this.toggleMenu}
-                  >
-                    Who
-                  </NavLink>
-                </li>
-              </ul>
-              {/* <ul className="home-controls">
-                <li className="dark-mode" alt-text="Switch Mode">
-                  Dark Mode
-                </li>
-              </ul> */}
-            </nav>
-          </header>
-          <Redirect exact from="/" to="/home" />
+      <GlobalProvider>
+        <div className="app">
+          <Router>
+            <header className="app-header">
+              {menuButton}
+              <nav
+                className={
+                  this.state.isMobile
+                    ? "app-navigation--drawer " +
+                      (this.state.showMenu
+                        ? "app-navigation--drawer__show"
+                        : "app-navigation--drawer__hide")
+                    : "app-navigation"
+                }
+              >
+                <ul className="home-menu">
+                  <li>
+                    <NavLink
+                      className="home-menu__link"
+                      activeClassName="home-menu__link-active"
+                      to="/home"
+                      onClick={this.toggleMenu}
+                    >
+                      Intro
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="home-menu__link"
+                      activeClassName="home-menu__link-active"
+                      to="/skills"
+                      onClick={this.toggleMenu}
+                    >
+                      Work
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="home-menu__link"
+                      activeClassName="home-menu__link-active"
+                      to="/resources"
+                      onClick={this.toggleMenu}
+                    >
+                      Things
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="home-menu__link"
+                      activeClassName="home-menu__link-active"
+                      to="/about"
+                      onClick={this.toggleMenu}
+                    >
+                      Who
+                    </NavLink>
+                  </li>
+                </ul>
+                <GlobalConsumer>
+                  {(props) => {
+                    return (
+                      <div className="app-controls">
+                        <button
+                          onClick={props.toggleTheme}
+                          aria-label="Toggle Dark Mode"
+                        >
+                          <ThemeIcon
+                            className={"theme_button " + props.theme}
+                          />
+                        </button>
+                      </div>
+                    );
+                  }}
+                </GlobalConsumer>
+              </nav>
+            </header>
+            <Redirect exact from="/" to="/home" />
 
-          <Switch>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route path="/skills">
-              <Skills />
-            </Route>
-            <Route path="/resources">
-              <Resources />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+            <Switch>
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              <Route path="/skills">
+                <Skills />
+              </Route>
+              <Route path="/resources">
+                <Resources />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      </GlobalProvider>
     );
   }
 }

@@ -5,54 +5,16 @@ const DEFAULT_SNAKE_LENGTH = 4;
 export default class SnakeGame extends Component {
   constructor() {
     super();
-    this.game = React.createRef();
     this.loop = this.loop.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-  }
-
-  componentDidMount() {
-    this.canvas = document.getElementById("game");
-    this.context = this.canvas.getContext("2d");
-    requestAnimationFrame(this.loop);
-    // this.setState({ score: this.snake.maxCells });
-  }
-
-  handleKeyDown(e, callback) {
-    // prevent snake from backtracking on itself by checking that it's
-    // not already moving on the same axis (pressing left while moving
-    // left won't do anything, and pressing right while moving left
-    // shouldn't let you collide with your own body)
-    // let snake = this.snake;
-    e.preventDefault();
-
-    console.log(e);
-    // left arrow key
-    if (e.keyCode === 37 && this.snake.dx === 0) {
-      this.snake.dx = -this.grid;
-      this.snake.dy = 0;
-    }
-    // up arrow key
-    else if (e.keyCode === 38 && this.snake.dy === 0) {
-      this.snake.dy = -this.grid;
-      this.snake.dx = 0;
-    }
-    // right arrow key
-    else if (e.keyCode === 39 && this.snake.dx === 0) {
-      this.snake.dx = this.grid;
-      this.snake.dy = 0;
-    }
-    // down arrow key
-    else if (e.keyCode === 40 && this.snake.dy === 0) {
-      this.snake.dy = this.grid;
-      this.snake.dx = 0;
-    }
+    this.handleTouch = this.handleTouch.bind(this); 
   }
 
   canvas;
   context;
 
-  grid = 16;
+  grid = 8;
   count = 0;
 
   // score = this.snake.maxCells - DEFAULT_SNAKE_LENGTH;
@@ -77,27 +39,86 @@ export default class SnakeGame extends Component {
     y: 320,
   };
 
+  componentDidMount() {
+    this.canvas = document.getElementById("game");
+    this.context = this.canvas.getContext("2d");
+    requestAnimationFrame(this.loop);
+    // this.setState({ score: this.snake.maxCells });
+  }
+
+  handleKeyDown(e, callback) {
+    // prevent snake from backtracking on itself by checking that it's
+    // not already moving on the same axis (pressing left while moving
+    // left won't do anything, and pressing right while moving left
+    // shouldn't let you collide with your own body)
+    e.preventDefault();
+
+    // left arrow key
+    if (e.keyCode === 37 && this.snake.dx === 0) {
+      this.snake.dx = -this.grid;
+      this.snake.dy = 0;
+    }
+    // up arrow key
+    else if (e.keyCode === 38 && this.snake.dy === 0) {
+      this.snake.dy = -this.grid;
+      this.snake.dx = 0;
+    }
+    // right arrow key
+    else if (e.keyCode === 39 && this.snake.dx === 0) {
+      this.snake.dx = this.grid;
+      this.snake.dy = 0;
+    }
+    // down arrow key
+    else if (e.keyCode === 40 && this.snake.dy === 0) {
+      this.snake.dy = this.grid;
+      this.snake.dx = 0;
+    }
+  }
+
+  
+currentTouchKeycode = 39;
+
+  handleTouch(event, callback) {
+    event.preventDefault();
+    console.log(event);
+    console.log(event.target);
+    let clientY = event.touches[0].clientY;
+    let clientHeight = window.innerHeight;
+    // touching the top half of the screen will move the snake 90 degrees in the counterclockwise direction
+    // bottom half: clockwise
+    let isClockwise = clientY <= clientHeight / 2 ? false : true;
+
+    if (isClockwise) {
+      this.currentTouchKeycode =
+        this.currentTouchKeycode === 40 ? 37 : this.currentTouchKeycode + 1;
+    } else {
+      this.currentTouchKeycode =
+        this.currentTouchKeycode === 37 ? 40 : this.currentTouchKeycode - 1;
+    }
+
+    this.handleKeyDown({
+      keyCode: this.currentTouchKeycode,
+      preventDefault: event.preventDefault
+    });
+  }
+
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
   // game loop
   loop() {
-    // let count = this.count;
-    // let context = this.context;
-    // let snake = this.snake;
-    // let canvas = this.canvas;
-    // let grid = this.grid;
-    // let apple = this.apple;
-
     requestAnimationFrame(this.loop);
 
     // slow game loop to 15 fps instead of 60 (60/15 = 4)
-    if (++this.count < 4) {
+    if (++this.count < 6) {
       return;
     }
 
+    // console.log(this);
+
     this.count = 0;
+    this.context = this.canvas.getContext("2d");
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // move snake by it's velocity
@@ -144,6 +165,8 @@ export default class SnakeGame extends Component {
       // snake ate apple
       if (cell.x === this.apple.x && cell.y === this.apple.y) {
         this.snake.maxCells++;
+        document.getElementById("snake-score").innerHTML =
+        "Score: " + (this.snake.maxCells - DEFAULT_SNAKE_LENGTH);
         // canvas is 400x400 which is 25x25 grids
         this.apple.x = this.getRandomInt(0, 25) * this.grid;
         this.apple.y = this.getRandomInt(0, 25) * this.grid;
@@ -168,8 +191,7 @@ export default class SnakeGame extends Component {
         }
       }
     });
-    document.getElementById("snake-score").innerHTML =
-      "Score: " + (this.snake.maxCells - DEFAULT_SNAKE_LENGTH);
+   
     // this.setState({ score: this.snake.maxCells });
   }
 
@@ -182,9 +204,9 @@ export default class SnakeGame extends Component {
         <canvas
           width="400"
           height="400"
-          ref={this.game}
           id="game"
           onKeyDown={this.handleKeyDown}
+          onTouchStart={this.handleTouch}
           tabIndex="0"
         ></canvas>
       </div>

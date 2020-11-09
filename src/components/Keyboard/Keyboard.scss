@@ -10,9 +10,14 @@
     transform: scale(0.7);
   }
 
+  .keyboard-svg{
+    perspective: 300px;
+  }
+
   #kbd {
     // margin-left: 20px;
     // transform: scale(0.8);
+  transform: rotateX(10deg);
   }
 
   .keyboard-key:hover {

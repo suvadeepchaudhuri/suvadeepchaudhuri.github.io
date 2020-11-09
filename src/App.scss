@@ -71,15 +71,43 @@ a {
 }
 
 .app-navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5px;
+
+  .app-controls {
+    button  {
+      width: 25px;
+      height: 25px;
+      display: block;
+      position: relative;
+      border: none;
+
+      svg {
+        @include easeOut(0.2s);
+        &.light {
+          fill: gray;
+        }
+        &.dark {
+          fill: #333;
+          transform: rotate(180deg)
+        }
+
+      }
+      
+    }
+  }
+
   .home-menu {
     display: flex;
     flex-flow: row;
     justify-content: center;
     list-style: none;
     font-size: 0.8rem;
-    // width: 100;
+    width: max-content;
+    padding: 0;
 
-    border-bottom: 2px solid rgb(240, 240, 240);
     text-transform: uppercase;
     font-weight: lighter;
 
@@ -91,7 +119,7 @@ a {
     &__link {
       display: inline-block;
       padding: 10px 15px;
-      width: 80px;
+      width: 50px;
       text-align: center;
 
       &:hover {
@@ -158,14 +186,6 @@ a {
       }
     }
   }
-}
-
-.home-controls {
-  display: flex;
-  flex-flow: row;
-  // justify-content: center;
-  list-style: none;
-  color: black;
 }
 
 hr {
