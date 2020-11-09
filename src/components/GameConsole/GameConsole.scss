@@ -1,21 +1,78 @@
-.console-screen {
-  // width: 500px;
-  // height: 400px;
-  background-color: black;
-  border: 1px solid gray;
-  margin: 20px 0px;
+.game-console {
   display: flex;
+  flex-flow: column;
   align-items: center;
-  justify-content: center;
-}
+  .console-screen {
+    // width: 500px;
+    // height: 400px;
+    background-color: black;
+    border: 1px solid gray;
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dpad {
+    width: 200px;
+    height: 200px;
+    
+    & * {
+      border: 1px solid black;
+      position: relative;  
+    }
 
-.console-dpad {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10px;
-  width: 50%;
-
-  div {
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px 5px;
+    grid-template-areas:
+      ". dpad-up ."
+      "dpad-left . dpad-right"
+      ". dpad-down .";
+  }
+  
+  .dpad-up { grid-area: dpad-up; }
+  
+  .dpad-left { grid-area: dpad-left; }
+  
+  .dpad-right { grid-area: dpad-right; }
+  
+  .dpad-down { grid-area: dpad-down; }
+  
+  @media all and (-ms-high-contrast:none) {
+    .dpad {
+      display: -ms-grid;
+      -ms-grid-columns: repeat(3, 1fr);
+      -ms-grid-rows: repeat(3, 1fr);
+    }
+  
+    .dpad-up {
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 1;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 1;
+    }
+  
+    .dpad-left {
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 1;
+    }
+  
+    .dpad-right {
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 1;
+    }
+  
+    .dpad-down {
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 1;
+    }
   }
 }

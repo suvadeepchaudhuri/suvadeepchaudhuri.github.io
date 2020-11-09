@@ -65,98 +65,99 @@ class App extends React.Component {
     }
     return (
       <GlobalProvider>
-        <div className="app">
-          <Router>
-            <header className="app-header">
-              {menuButton}
-              <nav
-                className={
-                  this.state.isMobile
-                    ? "app-navigation--drawer " +
-                      (this.state.showMenu
-                        ? "app-navigation--drawer__show"
-                        : "app-navigation--drawer__hide")
-                    : "app-navigation"
-                }
-              >
-                <ul className="home-menu">
-                  <li>
-                    <NavLink
-                      className="home-menu__link"
-                      activeClassName="home-menu__link-active"
-                      to="/home"
-                      onClick={this.toggleMenu}
+        <GlobalConsumer>
+          {(globalContextProps) => {
+            return (
+              <div className={"app " + globalContextProps.theme}>
+                <Router>
+                  <header className="app-header">
+                    {menuButton}
+                    <nav
+                      className={
+                        this.state.isMobile
+                          ? "app-navigation--drawer " +
+                            (this.state.showMenu
+                              ? "app-navigation--drawer__show"
+                              : "app-navigation--drawer__hide")
+                          : "app-navigation"
+                      }
                     >
-                      Intro
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      className="home-menu__link"
-                      activeClassName="home-menu__link-active"
-                      to="/skills"
-                      onClick={this.toggleMenu}
-                    >
-                      Work
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      className="home-menu__link"
-                      activeClassName="home-menu__link-active"
-                      to="/resources"
-                      onClick={this.toggleMenu}
-                    >
-                      Things
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      className="home-menu__link"
-                      activeClassName="home-menu__link-active"
-                      to="/about"
-                      onClick={this.toggleMenu}
-                    >
-                      Who
-                    </NavLink>
-                  </li>
-                </ul>
-                <GlobalConsumer>
-                  {(props) => {
-                    return (
+                      <ul className="home-menu">
+                        <li>
+                          <NavLink
+                            className="home-menu__link"
+                            activeClassName="home-menu__link-active"
+                            to="/home"
+                            onClick={this.toggleMenu}
+                          >
+                            Intro
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="home-menu__link"
+                            activeClassName="home-menu__link-active"
+                            to="/skills"
+                            onClick={this.toggleMenu}
+                          >
+                            Work
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="home-menu__link"
+                            activeClassName="home-menu__link-active"
+                            to="/resources"
+                            onClick={this.toggleMenu}
+                          >
+                            Things
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="home-menu__link"
+                            activeClassName="home-menu__link-active"
+                            to="/about"
+                            onClick={this.toggleMenu}
+                          >
+                            Who
+                          </NavLink>
+                        </li>
+                      </ul>
                       <div className="app-controls">
                         <button
-                          onClick={props.toggleTheme}
+                          className="toggle-theme-button"
+                          onClick={globalContextProps.toggleTheme}
                           aria-label="Toggle Dark Mode"
                         >
                           <ThemeIcon
-                            className={"theme_button " + props.theme}
+                            className={"theme-icon " + globalContextProps.theme}
                           />
                         </button>
                       </div>
-                    );
-                  }}
-                </GlobalConsumer>
-              </nav>
-            </header>
-            <Redirect exact from="/" to="/home" />
+                    </nav>
+                  </header>
+                  <Redirect exact from="/" to="/home" />
 
-            <Switch>
-              <Route exact path="/home">
-                <Home />
-              </Route>
-              <Route path="/skills">
-                <Skills />
-              </Route>
-              <Route path="/resources">
-                <Resources />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-            </Switch>
-          </Router>
-        </div>
+                  <Switch>
+                    <Route exact path="/home">
+                      <Home />
+                    </Route>
+                    <Route path="/skills">
+                      <Skills />
+                    </Route>
+                    <Route path="/resources">
+                      <Resources />
+                    </Route>
+                    <Route path="/about">
+                      <About />
+                    </Route>
+                  </Switch>
+                </Router>
+              </div>
+            );
+          }}
+        </GlobalConsumer>
       </GlobalProvider>
     );
   }

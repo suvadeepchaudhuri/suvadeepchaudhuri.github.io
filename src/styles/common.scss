@@ -4,5 +4,6 @@ button {
     border: 1px solid lightgray;
     &:focus {
         outline: none;
+        background-color: transparent;
     }
 }

@@ -5,10 +5,13 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  // background-color: black;
   min-height: 100vh;
   overflow-x: hidden;
   font-size: $default-font-size;
+
+  &.dark {
+    background-color: $background-color-dark;
+  }
 }
 
 .app-header {
@@ -70,6 +73,28 @@ a {
   }
 }
 
+.toggle-theme-button {
+  width: 25px;
+  height: 25px;
+  display: block;
+  position: relative;
+  border: none;
+
+  svg {
+    @include easeOut(0.2s);
+    &.light {
+      fill: gray;
+      stroke: white;
+    }
+    &.dark {
+      fill: #333;
+      stroke: white;
+      stroke-width: 0.5;
+      transform: rotate(180deg);
+    }
+  }
+}
+
 .app-navigation {
   display: flex;
   justify-content: flex-end;
@@ -77,26 +102,26 @@ a {
   margin-right: 5px;
 
   .app-controls {
-    button  {
-      width: 25px;
-      height: 25px;
-      display: block;
-      position: relative;
-      border: none;
+    // button {
+    //   width: 25px;
+    //   height: 25px;
+    //   display: block;
+    //   position: relative;
+    //   border: none;
 
-      svg {
-        @include easeOut(0.2s);
-        &.light {
-          fill: gray;
-        }
-        &.dark {
-          fill: #333;
-          transform: rotate(180deg)
-        }
-
-      }
-      
-    }
+    //   svg {
+    //     @include easeOut(0.2s);
+    //     &.light {
+    //       fill: gray;
+    //     }
+    //     &.dark {
+    //       fill: #333;
+    //       stroke: white;
+    //       stroke-width: 0.5;
+    //       transform: rotate(180deg);
+    //     }
+    //   }
+    // }
   }
 
   .home-menu {
@@ -156,6 +181,21 @@ a {
     transform: translateX(-100%);
   }
 
+  .app-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .toggle-theme-button {
+      &.light {
+        fill: rgba(gray, 1);
+      }
+      &.dark {
+        fill: rgba(#333, 1);
+      }
+    }
+    
+  }
+
   .home-menu {
     display: flex;
     flex-flow: column;
@@ -164,7 +204,7 @@ a {
     list-style: none;
     font-size: 1rem;
     width: 100%;
-    height: 100%;
+    height: 50%;
     text-transform: uppercase;
     font-weight: lighter;
     color: white;

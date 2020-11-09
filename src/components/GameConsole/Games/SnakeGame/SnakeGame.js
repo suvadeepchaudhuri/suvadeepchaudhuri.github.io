@@ -111,7 +111,7 @@ currentTouchKeycode = 39;
     requestAnimationFrame(this.loop);
 
     // slow game loop to 15 fps instead of 60 (60/15 = 4)
-    if (++this.count < 6) {
+    if (++this.count < 2) {
       return;
     }
 
