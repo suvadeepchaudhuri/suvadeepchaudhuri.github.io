@@ -7,9 +7,10 @@
   canvas {
     
   }
-
-  &__score {
+  &__info {
     color: white;
+    display: flex;
+    justify-content: space-between;
   }
 
   canvas {

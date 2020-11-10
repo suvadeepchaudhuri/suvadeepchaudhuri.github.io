@@ -1,9 +1,11 @@
+@import "../../styles/variables";
 .game-console {
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin-bottom: 20px;
   .console-screen {
-    // width: 500px;
+    width: min-content;
     // height: 400px;
     background-color: black;
     border: 1px solid gray;
@@ -11,6 +13,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .updown {
+    display: flex;
+    flex-flow: column;
+    width: 200px;
+    height: 300px;
+
+    .buttonset-up,.buttonset-down {
+      flex-basis: 50%;
+      width: 100%;
+      border: 1px solid black;
+    }
   }
   
   .dpad {
@@ -20,6 +35,7 @@
     & * {
       border: 1px solid black;
       position: relative;  
+      background-color: $primary-color;
     }
 
     display: grid;
@@ -32,13 +48,23 @@
       ". dpad-down .";
   }
   
-  .dpad-up { grid-area: dpad-up; }
+  .dpad-up { grid-area: dpad-up; 
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
   
-  .dpad-left { grid-area: dpad-left; }
+  .dpad-left { grid-area: dpad-left; 
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;}
   
-  .dpad-right { grid-area: dpad-right; }
+  .dpad-right { grid-area: dpad-right; 
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
   
-  .dpad-down { grid-area: dpad-down; }
+  .dpad-down { grid-area: dpad-down; 
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;}
   
   @media all and (-ms-high-contrast:none) {
     .dpad {

@@ -2,13 +2,19 @@ import React, { Component } from "react";
 import "./SnakeGame.scss";
 
 const DEFAULT_SNAKE_LENGTH = 4;
+
 export default class SnakeGame extends Component {
   constructor() {
     super();
+    this.state = {
+      score: 0,
+      gameLevel: { id: 2, label: "Medium", frameCheckFactor: 4 },
+    };
     this.loop = this.loop.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleTouch = this.handleTouch.bind(this); 
+    this.handleTouch = this.handleTouch.bind(this);
+    this.toggleGameLevel = this.toggleGameLevel.bind(this);
   }
 
   canvas;
@@ -17,6 +23,13 @@ export default class SnakeGame extends Component {
   grid = 8;
   count = 0;
 
+  levels = [
+    { id: 1, label: "Easy", frameCheckFactor: 6 },
+    { id: 2, label: "Medium", frameCheckFactor: 4 },
+    { id: 3, label: "Hard", frameCheckFactor: 3 },
+  ];
+
+  selectedLevel = this.levels[1];
   // score = this.snake.maxCells - DEFAULT_SNAKE_LENGTH;
 
   snake = {
@@ -46,13 +59,31 @@ export default class SnakeGame extends Component {
     // this.setState({ score: this.snake.maxCells });
   }
 
+  toggleGameLevel() {
+    console.log("level toggle");
+    let numLevels = this.levels.length;
+    let currentLevelIndex = this.levels.findIndex(
+      (level) => level.id === this.state.gameLevel.id
+    );
+    let newLevelIndex = 0;
+    if (currentLevelIndex === numLevels - 1) {
+      newLevelIndex = 0;
+    } else {
+      newLevelIndex = currentLevelIndex + 1;
+    }
+
+    this.setState({gameLevel: this.levels[newLevelIndex]});
+    // this.selectedLevel = this.levels[newLevelIndex];
+  }
+
   handleKeyDown(e, callback) {
     // prevent snake from backtracking on itself by checking that it's
     // not already moving on the same axis (pressing left while moving
     // left won't do anything, and pressing right while moving left
     // shouldn't let you collide with your own body)
     e.preventDefault();
-
+    console.log(e);
+    console.log(e.key);
     // left arrow key
     if (e.keyCode === 37 && this.snake.dx === 0) {
       this.snake.dx = -this.grid;
@@ -75,8 +106,7 @@ export default class SnakeGame extends Component {
     }
   }
 
-  
-currentTouchKeycode = 39;
+  currentTouchKeycode = 39;
 
   handleTouch(event, callback) {
     event.preventDefault();
@@ -89,16 +119,40 @@ currentTouchKeycode = 39;
     let isClockwise = clientY <= clientHeight / 2 ? false : true;
 
     if (isClockwise) {
-      this.currentTouchKeycode =
-        this.currentTouchKeycode === 40 ? 37 : this.currentTouchKeycode + 1;
+      this.moveClockWise();
     } else {
-      this.currentTouchKeycode =
-        this.currentTouchKeycode === 37 ? 40 : this.currentTouchKeycode - 1;
+      this.moveCounterClockWise();
     }
 
+    // this.handleKeyDown({
+    //   keyCode: this.currentTouchKeycode,
+    //   preventDefault: event.preventDefault,
+    // });
+  }
+
+  handlePhoneUp() {
+    this.moveCounterClockWise();
+  }
+
+  handlePhoneDown() {
+    this.moveClockWise();
+  }
+
+  moveClockWise() {
+    this.currentTouchKeycode =
+    this.currentTouchKeycode === 40 ? 37 : this.currentTouchKeycode + 1;
     this.handleKeyDown({
       keyCode: this.currentTouchKeycode,
-      preventDefault: event.preventDefault
+      preventDefault: function(){},
+    });
+  }
+
+  moveCounterClockWise() {
+    this.currentTouchKeycode =
+    this.currentTouchKeycode === 37 ? 40 : this.currentTouchKeycode - 1;
+    this.handleKeyDown({
+      keyCode: this.currentTouchKeycode,
+      preventDefault: function(){},
     });
   }
 
@@ -111,7 +165,7 @@ currentTouchKeycode = 39;
     requestAnimationFrame(this.loop);
 
     // slow game loop to 15 fps instead of 60 (60/15 = 4)
-    if (++this.count < 2) {
+    if (++this.count < this.state.gameLevel.frameCheckFactor) {
       return;
     }
 
@@ -166,7 +220,7 @@ currentTouchKeycode = 39;
       if (cell.x === this.apple.x && cell.y === this.apple.y) {
         this.snake.maxCells++;
         document.getElementById("snake-score").innerHTML =
-        "Score: " + (this.snake.maxCells - DEFAULT_SNAKE_LENGTH);
+          "Score: " + (this.snake.maxCells - DEFAULT_SNAKE_LENGTH);
         // canvas is 400x400 which is 25x25 grids
         this.apple.x = this.getRandomInt(0, 25) * this.grid;
         this.apple.y = this.getRandomInt(0, 25) * this.grid;
@@ -188,25 +242,36 @@ currentTouchKeycode = 39;
 
           this.apple.x = this.getRandomInt(0, 25) * this.grid;
           this.apple.y = this.getRandomInt(0, 25) * this.grid;
+          document.getElementById("snake-score").innerHTML =
+          "Score: 0";
         }
       }
     });
-   
-    // this.setState({ score: this.snake.maxCells });
   }
 
   render() {
     return (
       <div className="snake-game" onKeyDown={this.handleKeyDown}>
-        <div className="snake-game__score" id="snake-score">
-          Score: 0
+        <div className="snake-game__info">
+          <div className="snake-game__score" id="snake-score">
+            Score: 0
+          </div>
+          <div
+            className="snake-game__score"
+            id="snake-score"
+            onClick={this.toggleGameLevel}
+          >
+            Level: {this.state.gameLevel.label}
+          </div>
         </div>
+
         <canvas
           width="400"
           height="400"
           id="game"
           onKeyDown={this.handleKeyDown}
           onTouchStart={this.handleTouch}
+          onTouchEnd={(e)=>{e.preventDefault()}}
           tabIndex="0"
         ></canvas>
       </div>
