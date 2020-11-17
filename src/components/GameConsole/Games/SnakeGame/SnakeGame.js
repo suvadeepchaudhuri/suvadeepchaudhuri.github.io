@@ -48,8 +48,8 @@ export default class SnakeGame extends Component {
   };
 
   apple = {
-    x: 320,
-    y: 320,
+    x: 200,//320,
+    y: 120//320,
   };
 
   componentDidMount() {
@@ -72,7 +72,7 @@ export default class SnakeGame extends Component {
       newLevelIndex = currentLevelIndex + 1;
     }
 
-    this.setState({gameLevel: this.levels[newLevelIndex]});
+    this.setState({ gameLevel: this.levels[newLevelIndex] });
     // this.selectedLevel = this.levels[newLevelIndex];
   }
 
@@ -140,19 +140,19 @@ export default class SnakeGame extends Component {
 
   moveClockWise() {
     this.currentTouchKeycode =
-    this.currentTouchKeycode === 40 ? 37 : this.currentTouchKeycode + 1;
+      this.currentTouchKeycode === 40 ? 37 : this.currentTouchKeycode + 1;
     this.handleKeyDown({
       keyCode: this.currentTouchKeycode,
-      preventDefault: function(){},
+      preventDefault: function () {},
     });
   }
 
   moveCounterClockWise() {
     this.currentTouchKeycode =
-    this.currentTouchKeycode === 37 ? 40 : this.currentTouchKeycode - 1;
+      this.currentTouchKeycode === 37 ? 40 : this.currentTouchKeycode - 1;
     this.handleKeyDown({
       keyCode: this.currentTouchKeycode,
-      preventDefault: function(){},
+      preventDefault: function () {},
     });
   }
 
@@ -174,6 +174,10 @@ export default class SnakeGame extends Component {
     this.count = 0;
     this.context = this.canvas.getContext("2d");
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // IF SHOWING ON PHONE
+    this.context.fillStyle = 'rgba(113, 170, 94, 1)';
+    this.context.fillRect(0,0,this.canvas.width, this.canvas.height);
 
     // move snake by it's velocity
     this.snake.x += this.snake.dx;
@@ -202,7 +206,7 @@ export default class SnakeGame extends Component {
     }
 
     // draw apple
-    this.context.fillStyle = "red";
+    this.context.fillStyle = "#1f1F1F"; // IF SHOWING ON PHONE
     this.context.fillRect(
       this.apple.x,
       this.apple.y,
@@ -211,7 +215,7 @@ export default class SnakeGame extends Component {
     );
 
     // draw snake one cell at a time
-    this.context.fillStyle = "green";
+    this.context.fillStyle = "#2B2B2B";//"green"; // IF SHOWING ON PHONE
     this.snake.cells.forEach((cell, index) => {
       // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
       this.context.fillRect(cell.x, cell.y, this.grid - 1, this.grid - 1);
@@ -242,8 +246,7 @@ export default class SnakeGame extends Component {
 
           this.apple.x = this.getRandomInt(0, 25) * this.grid;
           this.apple.y = this.getRandomInt(0, 25) * this.grid;
-          document.getElementById("snake-score").innerHTML =
-          "Score: 0";
+          document.getElementById("snake-score").innerHTML = "Score: 0";
         }
       }
     });
@@ -251,30 +254,49 @@ export default class SnakeGame extends Component {
 
   render() {
     return (
-      <div className="snake-game" onKeyDown={this.handleKeyDown}>
-        <div className="snake-game__info">
-          <div className="snake-game__score" id="snake-score">
-            Score: 0
-          </div>
-          <div
-            className="snake-game__score"
-            id="snake-score"
-            onClick={this.toggleGameLevel}
-          >
-            Level: {this.state.gameLevel.label}
-          </div>
-        </div>
-
+      <React.Fragment>
+        {/* <div display='none' id="snake-score">
+          Score: 0
+        </div> */}
         <canvas
-          width="400"
-          height="400"
+          width="215"
+          height="145"
           id="game"
+          fillStyle='rgba(113, 170, 94, 1)'
           onKeyDown={this.handleKeyDown}
           onTouchStart={this.handleTouch}
-          onTouchEnd={(e)=>{e.preventDefault()}}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+          }}
           tabIndex="0"
         ></canvas>
-      </div>
+      </React.Fragment>
+
+      // <div className="snake-game" onKeyDown={this.handleKeyDown}>
+      //   <div className="snake-game__info">
+      //     <div className="snake-game__score" id="snake-score">
+      //       Score: 0
+      //     </div>
+      //     <div
+      //       className="snake-game__score"
+      //       id="snake-score"
+      //       onClick={this.toggleGameLevel}
+      //     >
+      //       Level: {this.state.gameLevel.label}
+      //     </div>
+      //   </div>
+
+      //   <canvas
+      //     width="400"
+      //     height="400"
+      //     id="game"
+      //     fillStyle="#71aa5e"
+      //     onKeyDown={this.handleKeyDown}
+      //     onTouchStart={this.handleTouch}
+      //     onTouchEnd={(e)=>{e.preventDefault()}}
+      //     tabIndex="0"
+      //   ></canvas>
+      // </div>
     );
   }
 }

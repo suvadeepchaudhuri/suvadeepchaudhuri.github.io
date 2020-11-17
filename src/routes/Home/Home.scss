@@ -1,6 +1,63 @@
+@import "../../styles/variables";
+
 .home {
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
+
+  .left {
+    justify-content: flex-start;
+  }
+  .center {
+    justify-content: center;
+  }
+  .right{
+    justify-content: flex-end;
+  }
+
+  //vertical 
+  .top {
+    align-items: flex-start;
+  }
+  .middle { 
+    align-items: center;
+  }
+  .bottom {
+    align-items: flex-end;
+  }
+
+  .info-band {
+    display: flex;
+    width: 100vw;
+    height: 50vh;
+    margin: 20px 0;
+    padding: 50px 20px;
+    background-color: $secondary-color;
+    color: $secondary-text-color;
+    box-shadow: 5px 10px 20px 0px rgba(0,0,0,0.5);
+    font-size: 12px;
+
+    .left {
+      text-align: left;
+    }
+
+    .right {
+      text-align:right;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .info-text {
+      max-width: 100%;
+      font-size: 24px;
+      font-weight: 100;
+      letter-spacing: 0.018rem;
+      line-height: 48px;
+      text-rendering: optimizeLegibility;
+      tab-size: 8;
+    }
+  }
 }

@@ -50,7 +50,6 @@ export default class Monitor extends Component {
     }
     return (
       <div className="monitor">
-        Theme: {this.context.theme}
         <div className="monitor__bezel">
           <div className="display">{screenTextDisplay}</div>
         </div>

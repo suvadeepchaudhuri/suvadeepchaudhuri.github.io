@@ -8,6 +8,7 @@
   min-height: 100vh;
   overflow-x: hidden;
   font-size: $default-font-size;
+  // scroll-behavior: smooth;
 
   &.dark {
     background-color: $background-color-dark;
