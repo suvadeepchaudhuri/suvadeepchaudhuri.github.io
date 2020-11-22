@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "./SnakeGame.scss";
 
 const DEFAULT_SNAKE_LENGTH = 4;
+const SNAKE_COLOR = "green";
+const SNAKE_COLOR_RETRO = "#2B2B2B";
+const FOOD_COLOR = "red";
+const FOOD_COLOR_RETRO = "#1f1F1F";
+const CANVAS_COLOR_RETRO = "rgba(113, 170, 94, 1)";
 
 export default class SnakeGame extends Component {
   constructor() {
@@ -43,11 +48,11 @@ export default class SnakeGame extends Component {
     // keep track of all grids the snake body occupies
     cells: [],
 
-    // length of the snake. grows when eating an apple
+    // length of the snake. grows when eating a unit of food
     maxCells: DEFAULT_SNAKE_LENGTH,
   };
 
-  apple = {
+  food = {
     x: 200,//320,
     y: 120//320,
   };
@@ -176,7 +181,7 @@ export default class SnakeGame extends Component {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // IF SHOWING ON PHONE
-    this.context.fillStyle = 'rgba(113, 170, 94, 1)';
+    this.context.fillStyle = CANVAS_COLOR_RETRO;
     this.context.fillRect(0,0,this.canvas.width, this.canvas.height);
 
     // move snake by it's velocity
@@ -205,29 +210,29 @@ export default class SnakeGame extends Component {
       this.snake.cells.pop();
     }
 
-    // draw apple
-    this.context.fillStyle = "#1f1F1F"; // IF SHOWING ON PHONE
+    // draw food
+    this.context.fillStyle = FOOD_COLOR_RETRO; // IF SHOWING ON PHONE
     this.context.fillRect(
-      this.apple.x,
-      this.apple.y,
+      this.food.x,
+      this.food.y,
       this.grid - 1,
       this.grid - 1
     );
 
     // draw snake one cell at a time
-    this.context.fillStyle = "#2B2B2B";//"green"; // IF SHOWING ON PHONE
+    this.context.fillStyle = SNAKE_COLOR_RETRO;//"green"; // IF SHOWING ON PHONE
     this.snake.cells.forEach((cell, index) => {
       // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
       this.context.fillRect(cell.x, cell.y, this.grid - 1, this.grid - 1);
 
-      // snake ate apple
-      if (cell.x === this.apple.x && cell.y === this.apple.y) {
+      // snake eats food
+      if (cell.x === this.food.x && cell.y === this.food.y) {
         this.snake.maxCells++;
         document.getElementById("snake-score").innerHTML =
           "Score: " + (this.snake.maxCells - DEFAULT_SNAKE_LENGTH);
         // canvas is 400x400 which is 25x25 grids
-        this.apple.x = this.getRandomInt(0, 25) * this.grid;
-        this.apple.y = this.getRandomInt(0, 25) * this.grid;
+        this.food.x = this.getRandomInt(0, 25) * this.grid;
+        this.food.y = this.getRandomInt(0, 25) * this.grid;
       }
 
       // check collision with all cells after this one (modified bubble sort)
@@ -244,8 +249,8 @@ export default class SnakeGame extends Component {
           this.snake.dx = this.grid;
           this.snake.dy = 0;
 
-          this.apple.x = this.getRandomInt(0, 25) * this.grid;
-          this.apple.y = this.getRandomInt(0, 25) * this.grid;
+          this.food.x = this.getRandomInt(0, 25) * this.grid;
+          this.food.y = this.getRandomInt(0, 25) * this.grid;
           document.getElementById("snake-score").innerHTML = "Score: 0";
         }
       }
@@ -262,7 +267,6 @@ export default class SnakeGame extends Component {
           width="215"
           height="145"
           id="game"
-          fillStyle='rgba(113, 170, 94, 1)'
           onKeyDown={this.handleKeyDown}
           onTouchStart={this.handleTouch}
           onTouchEnd={(e) => {
