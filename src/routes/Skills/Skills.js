@@ -1,6 +1,6 @@
 import React from "react";
 import "./Skills.scss";
-import { resume } from "./Resume-Object";
+import { resume } from "./resume";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 
