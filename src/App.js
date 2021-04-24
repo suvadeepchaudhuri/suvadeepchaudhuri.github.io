@@ -85,7 +85,7 @@ class App extends React.Component {
                       <ul className="home-menu">
                         <li>
                           <NavLink
-                            className="home-menu__link"
+                            className={"home-menu__link " + globalContextProps.theme}
                             activeClassName="home-menu__link-active"
                             to="/home"
                             onClick={this.toggleMenu}
@@ -95,7 +95,7 @@ class App extends React.Component {
                         </li>
                         <li>
                           <NavLink
-                            className="home-menu__link"
+                            className={"home-menu__link " + globalContextProps.theme}
                             activeClassName="home-menu__link-active"
                             to="/skills"
                             onClick={this.toggleMenu}
@@ -105,7 +105,7 @@ class App extends React.Component {
                         </li>
                         <li>
                           <NavLink
-                            className="home-menu__link"
+                            className={"home-menu__link " + globalContextProps.theme}
                             activeClassName="home-menu__link-active"
                             to="/resources"
                             onClick={this.toggleMenu}
@@ -115,7 +115,7 @@ class App extends React.Component {
                         </li>
                         <li>
                           <NavLink
-                            className="home-menu__link"
+                            className={"home-menu__link " + globalContextProps.theme}
                             activeClassName="home-menu__link-active"
                             to="/about"
                             onClick={this.toggleMenu}

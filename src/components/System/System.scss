@@ -1,10 +1,14 @@
 @import "../../styles/variables";
 
 .System {
+    width: 100%;
+    padding: 30px 0px;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    // background-image: url('../../brick.svg');
+    // background-repeat: repeat repeat ;
 
     .table {
         margin-top: -70px;

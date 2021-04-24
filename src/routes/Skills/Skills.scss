@@ -1,15 +1,21 @@
 .skills {
   display: flex;
   flex-flow: column;
+
+  &.dark {
+    color: lightgrey;
+  }
+
   &__section {
     border: 1px solid lightgrey;
     margin: 20px 10px;
+
     .section-title {
-      background-color: lightgrey;
-      color: white;
-      font-weight: bold;
       text-transform: uppercase;
+      font-weight: 400;
+      font-size: 12px;
       padding: 5px;
+      margin-bottom: 20px;
     }
 
     .skills-container {
@@ -19,7 +25,13 @@
       padding: 10px;
 
       .skill-pill {
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+        text-align: center;
+        padding: 5px;
         margin: 5px 10px;
+        min-width: 50px;
+        cursor: default;
       }
     }
   }

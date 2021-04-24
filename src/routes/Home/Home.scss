@@ -38,6 +38,11 @@
     box-shadow: 5px 10px 20px 0px rgba(0,0,0,0.5);
     font-size: 12px;
 
+    &.dark{
+      background-color: black;
+      color: lightgrey;
+    }
+
     .left {
       text-align: left;
     }

@@ -13,12 +13,13 @@ export default function CuboidText(props) {
     bottomTerm = props.terms[3];
   }
   return (
-    <div class="scene">
-      <div class="cube">
-        <div class="cube__face cube__face--front">{frontTerm}</div>
-        <div class="cube__face cube__face--back">{backTerm}</div>
-        <div class="cube__face cube__face--top">{topTerm}</div>
-        <div class="cube__face cube__face--bottom">{bottomTerm}</div>
+    <div className="scene">
+      <div className="cube">
+        <div className="cube__face cube__face--front">{frontTerm}</div>
+        <div className="cube__face cube__face--back">{backTerm}</div>
+        <div className="cube__face cube__face--top">{topTerm}</div>
+        <div className
+        ="cube__face cube__face--bottom">{bottomTerm}</div>
       </div>
     </div>
   );

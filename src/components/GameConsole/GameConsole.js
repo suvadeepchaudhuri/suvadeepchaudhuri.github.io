@@ -86,10 +86,10 @@ export default class GameConsole extends React.Component {
     let phoneControls = (
       <div>
         <svg
-          xmlnsDc="http://purl.org/dc/elements/1.1/"
-          xmlnsCc="http://creativecommons.org/ns#"
-          xmlnsRdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-          xmlnsSvg="http://www.w3.org/2000/svg"
+          xmlnsdc="http://purl.org/dc/elements/1.1/"
+          xmlnscc="http://creativecommons.org/ns#"
+          xmlnsrdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlnssvg="http://www.w3.org/2000/svg"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           width="351.6286"

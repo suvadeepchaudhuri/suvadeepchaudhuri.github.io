@@ -148,6 +148,10 @@ a {
       width: 50px;
       text-align: center;
 
+      &.dark {
+        color: lightgrey;
+      }
+
       &:hover {
         box-shadow: 0px 2px 0px 0px lightgreen;
       }
