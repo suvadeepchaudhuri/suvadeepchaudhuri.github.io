@@ -1,56 +1,82 @@
-.about-component {
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    // justify-content: center;
-    align-items: center;
+@import "../../styles/mixins";
+.about {
+  // width: 100%;
+  display: flex;
+  flex-flow: column;
+  min-width: 600px;
+  max-width: 600px;
 
-    .about {
-        width: 100%;
+  @include iphonex {
+    min-width: 350px;
+    max-width: 350px;
+  }
+  // justify-content: center;
+  // align-items: center;
+
+  &.dark {
+    color: lightgray;
+  }
+
+  .heading {
+    font-size: 12px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+
+  .about-section {
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 50px;
+
+    @include iphonex {
+      flex-flow: column;
+    }
+
+    .intro {
+      flex-basis: 60%;
+      margin-right: 20px;
+
+      &__title {
+        font-size: 24px;
+        font-weight: lighter;
         border-radius: 5px;
+        height: max-content;
+        margin-bottom: 20px;
+
+        a {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &__text {
+        border-radius: 5px;
+        height: max-content;
+        margin-top: 10px;
+      }
+    }
+
+    .images {
+      display: flex;
+      flex-flow: column;
+
+      @include iphonex {
+        margin-top: 20px;
+
+        .profile-image {
+          width: 350px;
+          height: 480px;
+        }
+      }
+
+      .connect {
         display: flex;
         flex-flow: row;
-        justify-content: center;
-
-        .intro {
-            width: 40%;
-            margin-right: 20px;
-            &__title {
-                border-radius: 5px;
-                height: 50px;
-                background-color: lightslategray;
-            }
-
-            &__text {
-                border-radius: 5px;
-                height: 200px;
-                background-color: lightgray;
-                margin-top: 10px;
-            }
-        }
-
-        .picture {
-            border-radius: 5px;
-            height: 200px;
-            width: 200px;
-            background-color: gray;
-        }
+      }
     }
-
-    .timeline {
-        margin: 20px;
-        width: 70%;
-        display: flex;
-        flex-flow: column;
-        align-items: left;
-        border-left: 1px dashed black;
-
-        .connector {
-            height: 100px;
-            width: 1px;
-            border-left: 1px solid black;
-            margin-left: 20px;
-            top: -50px;
-        }
-    }
+  }
 }

@@ -15,7 +15,7 @@ export default class Keyboard extends Component {
   }
 
   componentDidMount() {
-    // this.typeWelcomeMessage();
+    this.typeWelcomeMessage();
     // this.greetUser();
   }
 
@@ -47,7 +47,7 @@ export default class Keyboard extends Component {
   }
 
   async typeWelcomeMessage() {
-    let welcomeString = "Hello User welcome to geek mountain!";
+    let welcomeString = "Hello there! Hope you're doing good!";
     let _this = this;
     var alpha = /^[a-zA-Z]+$/;
     for (let i = 0; i < welcomeString.length; i++) {
@@ -104,26 +104,54 @@ export default class Keyboard extends Component {
   isCapsEnabled = false;
   capsKeyRef = "button_caps";
 
-  executeKeyboardLightEffect(context, value) {
-    console.log(this.refs[context]);
-    // if (value === "1 !") {
-    //   let _this = this;
-    //   let i = 1;
-    //   let lightupKeys = [];
-    //   while (i < 10) {
-    //     let contextVal = "button_" + i;
-    //     lightupKeys.push(_this.refs[contextVal]);
-    //     // setTimeout(() => {
-    //     //   _this.flashKey(_this.refs[contextVal], 100);
-    //     // }, 300);
-    //     i++;
-    //   }
-    //   this.execSequentially(lightupKeys, (item) =>
-    //     setTimeout(() => {
-    //       this.flashKey(item);
-    //     }, 500)
-    //   );
-    // }
+  // executeKeyboardLightEffect(context, value) {
+  //   console.log(this.refs[context]);
+  // if (value === "1 !") {
+  //   let _this = this;
+  //   let i = 1;
+  //   let lightupKeys = [];
+  //   while (i < 10) {
+  //     let contextVal = "button_" + i;
+  //     lightupKeys.push(_this.refs[contextVal]);
+  //     setTimeout(() => {
+  //       _this.flashKey(_this.refs[contextVal], 100);
+  //     }, 300);
+  //     i++;
+  //   }
+  //   // this.execSequentially(lightupKeys, (item) =>
+  //   //   setTimeout(() => {
+  //   //     _this.flashKey(item);
+  //   //   }, 500)
+  //   // );
+  // }
+  // }
+
+  async executeKeyboardLightEffect(context, value) {
+    if (value === "1 !") {
+      let _this = this;
+      let i = 1;
+      let lightupKeys = [];
+      while (i < 10) {
+        let contextVal = "button_" + i;
+        lightupKeys.push(_this.refs[contextVal]);
+        await this.flashButton(_this.refs[contextVal], 100);
+        i++;
+      }
+    }
+  }
+
+  flashButton(key, timeout = 100) {
+    if (key) {
+      return new Promise((resolve) => {
+        key.setAttribute("fill", this.backlitColor);
+        setTimeout(() => {
+          key.setAttribute("fill", this.keyBackgroundColor);
+          resolve();
+        }, timeout);
+      });
+    }
+
+    return new Promise.resolve();
   }
 
   flashKey(key, time = 100) {
@@ -135,13 +163,13 @@ export default class Keyboard extends Component {
     }
   }
 
-  activateKey(key){
+  activateKey(key) {
     if (key) {
       key.setAttribute("fill", this.backlitColor);
     }
   }
 
-  deActivateKey(key){
+  deActivateKey(key) {
     if (key) {
       key.setAttribute("fill", this.keyBackgroundColor);
     }
@@ -236,7 +264,7 @@ export default class Keyboard extends Component {
     this.setTextOnMonitor();
   }
 
-  setTextOnMonitor(){
+  setTextOnMonitor() {
     this.props.setScreenText(this.typedText);
     // if(this.refs["typingArea"]) {
     //   this.refs["typingArea"].innerHTML = "<pre>" + this.typedText + "</pre>";
@@ -284,7 +312,7 @@ export default class Keyboard extends Component {
                 strokeLinejoin="round"
                 strokeWidth="10"
               >
-                <rect width="500" height="184.75" stroke="none" rx="10"/>
+                <rect width="500" height="184.75" stroke="none" rx="10" />
                 <rect x="5" y="5" width="490" height="174.75" fill="none" />
               </g>
               <g

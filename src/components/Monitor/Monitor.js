@@ -51,7 +51,7 @@ export default class Monitor extends Component {
     return (
       <div className="monitor">
         <div className="monitor__bezel">
-          <div className="display">{screenTextDisplay}</div>
+          <div className="display" onKeyDown={(e)=>{this.props.onType(e)}}>{screenTextDisplay}</div>
         </div>
         <div className="monitor__bezel-bottom">
           <button

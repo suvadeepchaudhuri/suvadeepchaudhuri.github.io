@@ -1,6 +1,10 @@
 @import "./styles/variables";
 @import "./styles/mixins";
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .app {
   display: flex;
   flex-flow: column;
@@ -8,7 +12,10 @@
   min-height: 100vh;
   overflow-x: hidden;
   font-size: $default-font-size;
-  // scroll-behavior: smooth;
+  scroll-behavior: smooth;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   &.dark {
     background-color: $background-color-dark;
@@ -36,6 +43,10 @@
       margin: 0 0 5px 0;
       background-color: black;
       @include easeOut;
+
+      &.dark {
+        background-color: lightgrey;
+      }
     }
 
     // Rotate Into X With Menu Lines
@@ -198,7 +209,6 @@ a {
         fill: rgba(#333, 1);
       }
     }
-    
   }
 
   .home-menu {

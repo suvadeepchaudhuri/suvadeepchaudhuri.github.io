@@ -50,19 +50,24 @@ class App extends React.Component {
   state;
 
   render() {
-    let menuButton;
-    if (this.state.isMobile) {
-      menuButton = (
-        <button
-          className={"btn btn-menu" + (this.state.showMenu ? " close" : "")}
-          onClick={this.toggleMenu}
-        >
-          <div className="btn-line" />
-          <div className="btn-line" />
-          <div className="btn-line" />
-        </button>
-      );
+    let _this = this;
+    function getMenuButton(theme) {
+      let menuButton;
+      if (_this.state.isMobile) {
+        menuButton = (
+          <button
+            className={"btn btn-menu" + (_this.state.showMenu ? " close" : "")}
+            onClick={_this.toggleMenu}
+          >
+            <div className={"btn-line " + theme} />
+            <div className={"btn-line " + theme} />
+            <div className={"btn-line " + theme} />
+          </button>
+        );
+      }
+      return menuButton;
     }
+
     return (
       <GlobalProvider>
         <GlobalConsumer>
@@ -71,7 +76,7 @@ class App extends React.Component {
               <div className={"app " + globalContextProps.theme}>
                 <Router>
                   <header className="app-header">
-                    {menuButton}
+                    {getMenuButton(globalContextProps.theme)}
                     <nav
                       className={
                         this.state.isMobile
@@ -85,17 +90,21 @@ class App extends React.Component {
                       <ul className="home-menu">
                         <li>
                           <NavLink
-                            className={"home-menu__link " + globalContextProps.theme}
+                            className={
+                              "home-menu__link " + globalContextProps.theme
+                            }
                             activeClassName="home-menu__link-active"
                             to="/home"
                             onClick={this.toggleMenu}
                           >
-                            Intro
+                            Desk
                           </NavLink>
                         </li>
                         <li>
                           <NavLink
-                            className={"home-menu__link " + globalContextProps.theme}
+                            className={
+                              "home-menu__link " + globalContextProps.theme
+                            }
                             activeClassName="home-menu__link-active"
                             to="/skills"
                             onClick={this.toggleMenu}
@@ -105,7 +114,9 @@ class App extends React.Component {
                         </li>
                         <li>
                           <NavLink
-                            className={"home-menu__link " + globalContextProps.theme}
+                            className={
+                              "home-menu__link " + globalContextProps.theme
+                            }
                             activeClassName="home-menu__link-active"
                             to="/resources"
                             onClick={this.toggleMenu}
@@ -115,7 +126,9 @@ class App extends React.Component {
                         </li>
                         <li>
                           <NavLink
-                            className={"home-menu__link " + globalContextProps.theme}
+                            className={
+                              "home-menu__link " + globalContextProps.theme
+                            }
                             activeClassName="home-menu__link-active"
                             to="/about"
                             onClick={this.toggleMenu}

@@ -5,6 +5,16 @@ export const template = {
       items: [{ name: "", level: 1, scale: 5 }],
     },
   ],
+  education: [
+    {
+      degree: "",
+      major: "",
+      school: "",
+      start: "",
+      end: ""
+      
+    }
+  ],
   workexperience: [
     {
       title: "",
@@ -12,7 +22,7 @@ export const template = {
       start: "",
       end: "",
       summary: "",
-      keypoints: "",
+      highlights: [""],
     },
   ],
   projects: [
@@ -22,7 +32,7 @@ export const template = {
       start: "",
       end: "",
       summary: "",
-      keypoints: "",
+      highlights: [""],
       skills: "",
     },
   ],

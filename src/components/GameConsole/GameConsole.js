@@ -1,6 +1,7 @@
 import React from "react";
 import "./GameConsole.scss";
 import SnakeGame from "./Games/SnakeGame/SnakeGame";
+import { GlobalConsumer } from "../../context-stores/global-store";
 
 const KEYCODE_LEFT = 37;
 const KEYCODE_UP = 38;
@@ -21,6 +22,8 @@ export default class GameConsole extends React.Component {
     // this.handleClick = this.handleClick.bind(this)
     this.handlePhoneUp = this.handlePhoneUp.bind(this);
     this.handlePhoneDown = this.handlePhoneDown.bind(this);
+    this.handlePhoneLeft = this.handlePhoneLeft.bind(this);
+    this.handlePhoneRight = this.handlePhoneRight.bind(this);
   }
 
   handleClick(keycode) {
@@ -30,11 +33,19 @@ export default class GameConsole extends React.Component {
   }
 
   handlePhoneUp() {
-    this.snakeGame.current.handlePhoneUp();
+    this.snakeGame.current.handleUp();
   }
 
   handlePhoneDown() {
-    this.snakeGame.current.handlePhoneDown();
+    this.snakeGame.current.handleDown();
+  }
+
+  handlePhoneRight() {
+    this.snakeGame.current.handleRight();
+  }
+
+  handlePhoneLeft() {
+    this.snakeGame.current.handleLeft();
   }
 
   render() {
@@ -146,7 +157,8 @@ export default class GameConsole extends React.Component {
             </filter>
           </defs>
           <g id="layer1" transform="translate(-55.08247,-23.70475)">
-            <rect
+            {/* Removing the phone shadow */}
+            {/* <rect
               style={{
                 mixBlendMode: "normal",
                 fill: "#808080",
@@ -162,14 +174,14 @@ export default class GameConsole extends React.Component {
               ry="47.890438"
               rx="19.579163"
               transform="matrix(1,0,0,1.0165564,0,-0.55194971)"
-            />
+            /> */}
             <path
               id="phone_body"
               style={{
                 fill: "#3d3d60",
                 fillOpacity: 1,
                 fillRule: "evenodd",
-                stroke: "#313131",
+                stroke: "#595959",
                 strokeWidth: "0.66145833",
                 strokeMiterlimit: 4,
                 strokeDasharray: "none",
@@ -364,11 +376,11 @@ export default class GameConsole extends React.Component {
                   <path
                     id="path935"
                     style={{
-                      fill: "#46cd35",
+                      fill: "#40ff00",
                       fillOpacity: 1,
                       fillRule: "evenodd",
-                      stroke: "#ffffff",
-                      strokeWidth: "0.125963",
+                      stroke: "#000",
+                      strokeWidth: "0.1",
                       strokeLinecap: "round",
                       strokeLinejoin: "round",
                       strokeMiterlimit: 4,
@@ -395,11 +407,11 @@ export default class GameConsole extends React.Component {
                   <path
                     id="path933"
                     style={{
-                      fill: "#46cd35",
+                      fill: "#40ff00",
                       fillOpacity: 1,
                       fillRule: "evenodd",
-                      stroke: "#ffffff",
-                      strokeWidth: "0.125963",
+                      stroke: "#000",
+                      strokeWidth: "0.1",
                       strokeLinecap: "round",
                       strokeLinejoin: "round",
                       strokeMiterlimit: 4,
@@ -427,10 +439,10 @@ export default class GameConsole extends React.Component {
                 <path
                   id="path940"
                   style={{
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeLinecap: "round",
                     strokeLinejoin: "round",
                     strokeMiterlimit: 4,
@@ -458,11 +470,11 @@ export default class GameConsole extends React.Component {
               />
               <rect
                 style={{
-                  fill: "#46cd35",
+                  fill: "#40ff00",
                   fillOpacity: 1,
                   fillRule: "evenodd",
-                  stroke: "#ffffff",
-                  strokeWidth: "0.265",
+                  stroke: "#000",
+                  strokeWidth: "0.15",
                   strokeMiterlimit: 4,
                   strokeDasharray: "none",
                 }}
@@ -492,6 +504,11 @@ export default class GameConsole extends React.Component {
                   strokeDasharray: "none",
                   strokeOpacity: 1,
                 }}
+                onClick={this.handlePhoneDown}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneDown();
+                }}
                 d="m 25.135417,127 c -3e-6,1.46125 -2.073017,3.43413 -4.630208,3.43413 -2.557191,0 -4.630206,-1.97288 -4.630209,-3.43413 3e-6,-1.46125 2.073018,-1.85753 4.630209,-1.85753 2.557191,0 4.630205,0.39628 4.630208,1.85753 z"
               />
               <text
@@ -519,6 +536,11 @@ export default class GameConsole extends React.Component {
                 x="19.179707"
                 y="128.31383"
                 id="text977"
+                onClick={this.handlePhoneDown}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneDown();
+                }}
               >
                 <tspan
                   id="tspan975"
@@ -536,12 +558,18 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.105318",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
+                    cursor: "pointer",
+                  }}
+                  onClick={this.handlePhoneDown}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    this.handlePhoneDown();
                   }}
                 >
                   8
@@ -610,10 +638,10 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.105318",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -684,10 +712,10 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.105318",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -713,6 +741,11 @@ export default class GameConsole extends React.Component {
                   strokeMiterlimit: 4,
                   strokeDasharray: "none",
                   strokeOpacity: 1,
+                }}
+                onClick={this.handlePhoneUp}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneUp();
                 }}
                 d="m 25.135417,127 c -3e-6,1.46125 -2.073017,3.43413 -4.630208,3.43413 -2.557191,0 -4.630206,-1.97288 -4.630209,-3.43413 3e-6,-1.46125 2.073018,-1.85753 4.630209,-1.85753 2.557191,0 4.630205,0.39628 4.630208,1.85753 z"
               />
@@ -741,6 +774,11 @@ export default class GameConsole extends React.Component {
                 x="19.179707"
                 y="128.31383"
                 id="text1004"
+                onClick={this.handlePhoneUp}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneUp();
+                }}
               >
                 <tspan
                   id="tspan1002"
@@ -758,12 +796,18 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.105318",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
+                    cursor: "pointer",
+                  }}
+                  onClick={this.handlePhoneUp}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    this.handlePhoneUp();
                   }}
                 >
                   2
@@ -787,6 +831,11 @@ export default class GameConsole extends React.Component {
                   strokeMiterlimit: 4,
                   strokeDasharray: "none",
                   strokeOpacity: 1,
+                }}
+                onClick={this.handlePhoneLeft}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneLeft();
                 }}
                 d="m 38.364583,137.58333 c 9e-6,2.04933 -2.756347,2.23658 -6.035263,2.23658 -3.278916,0 -5.83873,-1.26822 -5.838721,-3.31755 1e-6,-2.04933 0.103051,-3.61235 3.381964,-3.61235 3.278909,0 8.492018,2.64401 8.49202,4.69332 z"
               />
@@ -815,6 +864,11 @@ export default class GameConsole extends React.Component {
                 x="30.164316"
                 y="137.65276"
                 id="text1013"
+                onClick={this.handlePhoneLeft}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneLeft();
+                }}
               >
                 <tspan
                   id="tspan1011"
@@ -832,12 +886,18 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
+                    cursor: "pointer",
+                  }}
+                  onClick={this.handlePhoneLeft}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    this.handlePhoneLeft();
                   }}
                 >
                   4
@@ -906,10 +966,10 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -980,10 +1040,10 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -1054,10 +1114,10 @@ export default class GameConsole extends React.Component {
                     fontVariantCaps: "normal",
                     fontVariantNumeric: "normal",
                     fontVariantEastAsian: "normal",
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -1110,10 +1170,10 @@ export default class GameConsole extends React.Component {
                   x="31.828503"
                   y="137.39908"
                   style={{
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -1140,6 +1200,11 @@ export default class GameConsole extends React.Component {
                   strokeDasharray: "none",
                   strokeOpacity: 1,
                 }}
+                onClick={this.handlePhoneRight}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneRight();
+                }}
                 d="m 26.490599,137.58333 c -9e-6,2.04933 2.756347,2.23658 6.035263,2.23658 3.278916,0 5.83873,-1.26822 5.838721,-3.31755 -1e-6,-2.04933 -0.103051,-3.61235 -3.381964,-3.61235 -3.278909,0 -8.492018,2.64401 -8.49202,4.69332 z"
               />
               <text
@@ -1160,18 +1225,29 @@ export default class GameConsole extends React.Component {
                 x="31.828503"
                 y="137.39908"
                 id="text1098"
+                onClick={this.handlePhoneRight}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  this.handlePhoneRight();
+                }}
               >
                 <tspan
                   id="tspan1096"
                   x="31.828503"
                   y="137.39908"
                   style={{
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
+                    cursor: "pointer",
+                  }}
+                  onClick={this.handlePhoneRight}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    this.handlePhoneRight();
                   }}
                 >
                   6
@@ -1222,10 +1298,10 @@ export default class GameConsole extends React.Component {
                   x="31.828503"
                   y="137.39908"
                   style={{
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -1278,10 +1354,10 @@ export default class GameConsole extends React.Component {
                   x="31.828503"
                   y="137.39908"
                   style={{
-                    fill: "#46cd35",
+                    fill: "#40ff00",
                     fillOpacity: 1,
-                    stroke: "#ffffff",
-                    strokeWidth: "0.132292",
+                    stroke: "#000",
+                    strokeWidth: "0.1",
                     strokeMiterlimit: 4,
                     strokeDasharray: "none",
                   }}
@@ -1320,16 +1396,29 @@ export default class GameConsole extends React.Component {
       this.state.consoleType === CONSOLE_GAMEBOY
         ? gameboyControls
         : phoneControls;
-    let screenClass = this.state.consoleType === CONSOLE_GAMEBOY
-    ? 'console-screen'
-    : 'console-screen phone';
+    let screenClass =
+      this.state.consoleType === CONSOLE_GAMEBOY
+        ? "console-screen"
+        : "console-screen phone";
     return (
-      <div className="game-console">
-        <div className={screenClass}>
-          <SnakeGame ref={this.snakeGame} />
-        </div>
-        {controls}
-      </div>
+      <GlobalConsumer>
+        {(globalContextProps) => {
+          return (
+            <div className={"game-console " + globalContextProps.theme}>
+              <div className={screenClass}>
+                <SnakeGame ref={this.snakeGame} />
+              </div>
+              {controls}
+              <div id="snake-score" className="snake-score">
+                Score: 0
+              </div>
+              <div className="note">
+                Slow? Turn off the power saver mode!
+              </div>
+            </div>
+          );
+        }}
+      </GlobalConsumer>
     );
   }
 }

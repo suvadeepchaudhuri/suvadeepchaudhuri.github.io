@@ -6,6 +6,19 @@
   margin-bottom: 20px;
   position: relative;
 
+  &.dark {
+    color: lightgray;
+  }
+
+  .snake-score {
+    margin-top: -90px;
+  }
+
+  .note {
+    margin-top: 30px; 
+    font-style: italic;
+  }
+
   .phone {
     position: absolute;
     top: 132px;

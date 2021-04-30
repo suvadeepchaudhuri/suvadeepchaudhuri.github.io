@@ -4,7 +4,7 @@ const GlobalContext = React.createContext();
 export default GlobalContext;
 
 export class GlobalProvider extends Component {
-  state = { isFirstVisit: true, theme: "light" };
+  state = { isFirstVisit: true, theme: "dark" };
 
   toggleTheme = () => {
     if (this.state.theme === "light") {

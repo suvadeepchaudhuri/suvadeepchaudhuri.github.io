@@ -26,8 +26,8 @@ export default class SnakeGame extends Component {
 
   canvas;
 
-  canvasWidth= CANVAS_WIDTH;
-  canvasHeight= CANVAS_HEIGHT;
+  canvasWidth = CANVAS_WIDTH;
+  canvasHeight = CANVAS_HEIGHT;
   context;
 
   grid = 8;
@@ -41,8 +41,6 @@ export default class SnakeGame extends Component {
 
   selectedLevel = this.levels[1];
   // score = this.snake.maxCells - DEFAULT_SNAKE_LENGTH;
-
-  scoreNode = document.getElementById("snake-score");
 
   snake = {
     x: 160,
@@ -60,8 +58,8 @@ export default class SnakeGame extends Component {
   };
 
   food = {
-    x: 200,//320,
-    y: 120//320,
+    x: 200, //320,
+    y: 120, //320,
   };
 
   componentDidMount() {
@@ -142,12 +140,32 @@ export default class SnakeGame extends Component {
     // });
   }
 
-  handlePhoneUp() {
-    this.moveCounterClockWise();
+  handleUp() {
+    this.handleKeyDown({
+      keyCode: 38,
+      preventDefault: function () {},
+    });
   }
 
-  handlePhoneDown() {
-    this.moveClockWise();
+  handleLeft() {
+    this.handleKeyDown({
+      keyCode: 37,
+      preventDefault: function () {},
+    });
+  }
+  
+  handleRight() {
+    this.handleKeyDown({
+      keyCode: 39,
+      preventDefault: function () {},
+    });
+  }
+
+  handleDown() {
+    this.handleKeyDown({
+      keyCode: 40,
+      preventDefault: function () {},
+    });
   }
 
   moveClockWise() {
@@ -155,7 +173,7 @@ export default class SnakeGame extends Component {
       this.currentTouchKeycode === 40 ? 37 : this.currentTouchKeycode + 1;
     this.handleKeyDown({
       keyCode: this.currentTouchKeycode,
-      preventDefault: function () { },
+      preventDefault: function () {},
     });
   }
 
@@ -164,7 +182,7 @@ export default class SnakeGame extends Component {
       this.currentTouchKeycode === 37 ? 40 : this.currentTouchKeycode - 1;
     this.handleKeyDown({
       keyCode: this.currentTouchKeycode,
-      preventDefault: function () { },
+      preventDefault: function () {},
     });
   }
 
@@ -175,6 +193,7 @@ export default class SnakeGame extends Component {
   // game loop
   loop() {
     requestAnimationFrame(this.loop);
+    let scoreNode = document.getElementById("snake-score");
 
     // slow game loop to 15 fps instead of 60 (60/15 = 4)
     if (++this.count < this.state.gameLevel.frameCheckFactor) {
@@ -227,7 +246,7 @@ export default class SnakeGame extends Component {
     );
 
     // draw snake one cell at a time
-    this.context.fillStyle = SNAKE_COLOR_RETRO;//"green"; // IF SHOWING ON PHONE
+    this.context.fillStyle = SNAKE_COLOR_RETRO; //"green"; // IF SHOWING ON PHONE
     this.snake.cells.forEach((cell, index) => {
       // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
       this.context.fillRect(cell.x, cell.y, this.grid - 1, this.grid - 1);
@@ -235,81 +254,87 @@ export default class SnakeGame extends Component {
       // snake eats food
       if (cell.x === this.food.x && cell.y === this.food.y) {
         this.snake.maxCells++;
-        if (this.scoreNode) {
-          this.scoreNode.innerHTML =
-          "Score: " + (this.snake.maxCells - DEFAULT_SNAKE_LENGTH);
+        if (scoreNode) {
+          scoreNode.innerHTML =
+            "Score: " + (this.snake.maxCells - DEFAULT_SNAKE_LENGTH);
+        }
+        // canvas is 400x400 which is 25x25 grids
+        this.food.x =
+          this.getRandomInt(0, this.canvasWidth / this.grid) * this.grid;
+        this.food.y =
+          this.getRandomInt(0, this.canvasHeight / this.grid) * this.grid;
       }
-      // canvas is 400x400 which is 25x25 grids
-      this.food.x = this.getRandomInt(0, this.canvasWidth/this.grid) * this.grid;
-      this.food.y = this.getRandomInt(0, this.canvasHeight/this.grid) * this.grid;
-    }
 
       // check collision with all cells after this one (modified bubble sort)
       for (let i = index + 1; i < this.snake.cells.length; i++) {
-      // snake occupies same space as a body part. reset game
-      if (
-        cell.x === this.snake.cells[i].x &&
-        cell.y === this.snake.cells[i].y
-      ) {
-        this.snake.x = 160;
-        this.snake.y = 160;
-        this.snake.cells = [];
-        this.snake.maxCells = 4;
-        this.snake.dx = this.grid;
-        this.snake.dy = 0;
+        // snake occupies same space as a body part. reset game
+        if (
+          cell.x === this.snake.cells[i].x &&
+          cell.y === this.snake.cells[i].y
+        ) {
+          this.snake.x = 160;
+          this.snake.y = 160;
+          this.snake.cells = [];
+          this.snake.maxCells = 4;
+          this.snake.dx = this.grid;
+          this.snake.dy = 0;
 
-        this.food.x = this.getRandomInt(0, this.canvasWidth/this.grid) * this.grid;
-        this.food.y = this.getRandomInt(0, this.canvasHeight/this.grid) * this.grid;
-        if (this.scoreNode) { this.scoreNode.innerHTML = "Score: 0"; }
+          this.food.x =
+            this.getRandomInt(0, this.canvasWidth / this.grid) * this.grid;
+          this.food.y =
+            this.getRandomInt(0, this.canvasHeight / this.grid) * this.grid;
+          if (scoreNode) {
+            scoreNode.innerHTML = "Score: 0";
+          }
+        }
       }
-    }
-  });
-}
+    });
+  }
 
-render() {
-  return (
-    <React.Fragment>
-      {/* <div display='none' id="snake-score">
+  render() {
+    return (
+      <React.Fragment>
+        {/* <div display='none' id="snake-score">
           Score: 0
         </div> */}
-      <canvas
-        width={this.canvasWidth}
-        height={this.canvasHeight}
-        id="game"
-        onKeyDown={this.handleKeyDown}
-        onTouchStart={this.handleTouch}
-        onTouchEnd={(e) => {
-          e.preventDefault();
-        }}
-        tabIndex="0"
-      ></canvas>
-    </React.Fragment>
+        <canvas
+          width={this.canvasWidth}
+          height={this.canvasHeight}
+          id="game"
+          onKeyDown={this.handleKeyDown}
+          onTouchStart={this.handleTouch}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+          }}
+          tabIndex="0"
+        ></canvas>
+      </React.Fragment>
 
-    // <div className="snake-game" onKeyDown={this.handleKeyDown}>
-    //   <div className="snake-game__info">
-    //     <div className="snake-game__score" id="snake-score">
-    //       Score: 0
-    //     </div>
-    //     <div
-    //       className="snake-game__score"
-    //       id="snake-score"
-    //       onClick={this.toggleGameLevel}
-    //     >
-    //       Level: {this.state.gameLevel.label}
-    //     </div>
-    //   </div>
+      // <div className="snake-game" onKeyDown={this.handleKeyDown}>
+      //   <div className="snake-game__info">
+      //     <div className="snake-game__score" id="snake-score">
+      //       Score: 0
+      //     </div>
+      //     <div
+      //       className="snake-game__score"
+      //       id="snake-score"
+      //       onClick={this.toggleGameLevel}
+      //     >
+      //       Level: {this.state.gameLevel.label}
+      //     </div>
+      //   </div>
 
-    //   <canvas
-    //     width="400"
-    //     height="400"
-    //     id="game"
-    //     fillStyle="#71aa5e"
-    //     onKeyDown={this.handleKeyDown}
-    //     onTouchStart={this.handleTouch}
-    //     onTouchEnd={(e)=>{e.preventDefault()}}
-    //     tabIndex="0"
-    //   ></canvas>
-    // </div>
-  );
-}
+      //   <canvas
+      //     width="400"
+      //     height="400"
+      //     id="game"
+      //     fillStyle="#71aa5e"
+      //     onKeyDown={this.handleKeyDown}
+      //     onTouchStart={this.handleTouch}
+      //     onTouchEnd={(e)=>{e.preventDefault()}}
+      //     tabIndex="0"
+      //   ></canvas>
+      // </div>
+    );
+  }
 }
