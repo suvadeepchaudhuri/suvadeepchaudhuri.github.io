@@ -15,7 +15,7 @@ export default class Monitor extends Component {
 
   toggleMonitorPower() {
     this.setState({ isMonitorOn: !this.state.isMonitorOn });
-    this.context.toggleTheme();
+    // this.context.toggleTheme();
   }
 
   render() {
@@ -30,7 +30,7 @@ export default class Monitor extends Component {
       );
     }
     return (
-      <div className="monitor">
+      <div className={"monitor " + (this.state.isMonitorOn ? "backlit" : "")}>
         <div className="monitor__bezel">
           <div
             className="display"

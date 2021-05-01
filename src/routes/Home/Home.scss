@@ -83,6 +83,11 @@
       outline-offset: 1px;
     }
 
+    &:hover{
+      transform: translate(-20px,0);
+      transition: all 1s ease-in-out;
+    }
+
     &.dark {
       color: lightgray;
     }
