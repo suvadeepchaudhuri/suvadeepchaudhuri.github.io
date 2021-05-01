@@ -13,13 +13,14 @@ export default class Skills extends React.Component {
     this.clickSkill = this.clickSkill.bind(this);
   }
   clickSkill(skillName) {
-    console.log(skillName);
     this.searchAndHighlight(skillName);
     // TODO: Convert to button if using onClick
   }
 
   componentDidMount() {
-    this.markInstance = new Mark(document.querySelectorAll(".project-skills , .workex"));
+    this.markInstance = new Mark(
+      document.querySelectorAll(".project-skills , .workex")
+    );
   }
 
   markInstance;
@@ -54,7 +55,7 @@ export default class Skills extends React.Component {
       <GlobalConsumer>
         {(globalContextProps) => {
           return (
-            <React.Fragment>
+            <div className={"work " + globalContextProps.theme}>
               {/* Skills */}
               <div className={"skills " + globalContextProps.theme}>
                 <div className="block-title">Skills</div>
@@ -159,7 +160,16 @@ export default class Skills extends React.Component {
                   </div>
                 ))}
               </div>
-            </React.Fragment>
+              <a
+                href="https://github.com/suvadeepchaudhuri/MyResume/raw/master/Suvadeep_OPR_RJ.pdf"
+                target="_blank"
+                download="Suvadeep_OPR_RJ.pdf"
+                className="download-resume"
+                alt="Download Resume"
+                title="Download Resume"
+              >
+              </a> Download Resume
+            </div>
           );
         }}
       </GlobalConsumer>

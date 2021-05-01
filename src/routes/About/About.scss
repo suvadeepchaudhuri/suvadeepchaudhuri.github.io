@@ -64,6 +64,11 @@
       display: flex;
       flex-flow: column;
 
+      .profile-image {
+        width: 300px;
+        height: 375px;
+      }
+
       @include iphonex {
         margin-top: 20px;
 

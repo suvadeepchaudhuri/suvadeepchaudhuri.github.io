@@ -1,97 +1,122 @@
 @import "../../styles/mixins";
 
-.skills,
-.workex,
-.project,
-.edu {
-  display: flex;
-  flex-flow: column;
-  min-width: 600px;
-  max-width: 600px;
-
-  @include mediaSm {
-    min-width: 400px;
-    max-width: 400px;
-    padding: 0 10px;
-  }
-
-  @include iphonex {
-    min-width: 350px;
-    max-width: 350px;
-    padding: 0 10px;
-  }
-
+.work {
+  padding-bottom: 20px;
   &.dark {
     color: lightgrey;
+
+    .download-resume {
+      background: url(../../download_l.svg);
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+    }
   }
 
-  .block-title{
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 40;
-    font-size: 32px;
-    margin: 10px 0;
+  .download-resume {
+    display: inline-block;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    background: url(../../download_d.svg);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      transform: scale(1.5);
+      transition: all 500;
+    }
   }
 
-  .project__section {
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    padding: 10px;
-  }
+  .skills,
+  .workex,
+  .project,
+  .edu {
+    display: flex;
+    flex-flow: column;
+    min-width: 600px;
+    max-width: 600px;
 
-  &__section {
-    margin: 20px 10px;
+    @include mediaSm {
+      min-width: 400px;
+      max-width: 400px;
+      padding: 0 10px;
+    }
 
-    .section-title {
+    @include iphonex {
+      min-width: 350px;
+      max-width: 350px;
+      padding: 0 10px;
+    }
+
+    .block-title {
+      text-align: center;
       text-transform: uppercase;
-      font-weight: 400;
-      font-size: 12px;
-      padding: 5px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid lightgray;
+      font-weight: 40;
+      font-size: 32px;
+      margin: 10px 0;
+    }
 
-      .work {
-        &-title {
-        }
+    .project__section {
+      border: 1px solid lightgray;
+      border-radius: 3px;
+      padding: 10px;
+    }
 
-        &-org {
-        }
+    &__section {
+      margin: 20px 10px;
 
-        &-date {
+      .section-title {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 12px;
+        padding: 5px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+
+        .work {
+          &-title {
+          }
+
+          &-org {
+          }
+
+          &-date {
+          }
         }
       }
-    }
 
-    .work-summary {
-    }
+      .work-summary {
+      }
 
-    .work-highlights, .project-highlights {
-      list-style-type: circle;
-    }
+      .work-highlights,
+      .project-highlights {
+        list-style-type: circle;
+      }
 
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 10px;
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
 
-      .skill-pill {
-        color: inherit;
-        border-radius: 5px;
-        border: 1px solid lightgrey;
-        text-align: center;
-        padding: 5px;
-        margin: 5px 10px;
-        min-width: 50px;
-        cursor: default;
+        .skill-pill {
+          color: inherit;
+          border-radius: 5px;
+          border: 1px solid lightgrey;
+          text-align: center;
+          padding: 5px;
+          margin: 5px 10px;
+          min-width: 50px;
+          cursor: default;
 
-        &:hover{
-          transform: scale(1.2);
-          transition: all 0.1s;
-        }
+          &:hover {
+            transform: scale(1.2);
+            transition: all 0.1s;
+          }
 
-        &:focus {
-          outline: 1px dotted lightgray;
-          outline-offset: 1px;
+          &:focus {
+            outline: 1px dotted lightgray;
+            outline-offset: 1px;
+          }
         }
       }
     }

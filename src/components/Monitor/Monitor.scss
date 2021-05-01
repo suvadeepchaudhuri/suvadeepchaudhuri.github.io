@@ -1,10 +1,12 @@
 .monitor {
   width: 400px;
-  box-shadow: 0px 0px 80px 20px rgba(26, 240, 119, 1);
+  // box-shadow: 0px 0px 80px 20px rgba(26, 240, 119, 1);
+  box-shadow: 0px 0px 50px 10px rgba(26, 240, 119, 1);
   margin-bottom: 30px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: black;
+  z-index: 100;
 
   @media screen and (max-width: 576px) {
     transform: scale(0.8);
@@ -25,13 +27,33 @@
       font-size: 12px;
       font-family: Arial, Helvetica, sans-serif;
       text-align: left;
-      word-wrap: normal;
-      pre {
-        display: inline;
+      overflow-wrap: break-word;
+      display: flex;
+
+      .typing-area {
+        max-width: 100%;
+        max-height: 100%;
+        overflow-y: scroll;
+        
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        pre {
+          display: inline;
+          max-width: 100%;
+          max-height: 200px;
+          overflow-wrap: break-word;
+          white-space: pre-wrap;
+
+        }
+
+       
       }
     }
 
     .cursorSpan {
+      float: right;
       animation: blink-animation 1s steps(5, start) infinite;
     }
     @keyframes blink-animation {
@@ -54,7 +76,7 @@
       height: 5px;
       width: 10px;
       border: none;
-      outline:none;
+      outline: none;
 
       &:hover {
         cursor: pointer;

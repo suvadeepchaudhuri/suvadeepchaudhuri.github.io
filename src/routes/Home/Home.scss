@@ -77,6 +77,12 @@
     padding: 20px 10px;
     margin: 50px 0;
     font-size: 24px;
+
+    &:focus {
+      outline: 1px dashed lightgray;
+      outline-offset: 1px;
+    }
+
     &.dark {
       color: lightgray;
     }

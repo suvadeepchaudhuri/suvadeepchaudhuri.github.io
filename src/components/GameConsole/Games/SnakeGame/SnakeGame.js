@@ -70,7 +70,6 @@ export default class SnakeGame extends Component {
   }
 
   toggleGameLevel() {
-    console.log("level toggle");
     let numLevels = this.levels.length;
     let currentLevelIndex = this.levels.findIndex(
       (level) => level.id === this.state.gameLevel.id
@@ -92,8 +91,6 @@ export default class SnakeGame extends Component {
     // left won't do anything, and pressing right while moving left
     // shouldn't let you collide with your own body)
     e.preventDefault();
-    console.log(e);
-    console.log(e.key);
     // left arrow key
     if (e.keyCode === 37 && this.snake.dx === 0) {
       this.snake.dx = -this.grid;
@@ -120,8 +117,6 @@ export default class SnakeGame extends Component {
 
   handleTouch(event, callback) {
     event.preventDefault();
-    console.log(event);
-    console.log(event.target);
     let clientY = event.touches[0].clientY;
     let clientHeight = window.innerHeight;
     // touching the top half of the screen will move the snake 90 degrees in the counterclockwise direction
@@ -199,8 +194,6 @@ export default class SnakeGame extends Component {
     if (++this.count < this.state.gameLevel.frameCheckFactor) {
       return;
     }
-
-    // console.log(this);
 
     this.count = 0;
     this.context = this.canvas.getContext("2d");

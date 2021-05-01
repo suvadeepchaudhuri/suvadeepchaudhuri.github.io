@@ -9,50 +9,44 @@ export default class Monitor extends Component {
     super(props);
 
     this.state = {
-      isMonitorOn: true
+      isMonitorOn: true,
     };
   }
-
-  componentDidMount() {
-    console.log(this.context);
-  }
-
-  isMonitorOn = true;
 
   toggleMonitorPower() {
     this.setState({ isMonitorOn: !this.state.isMonitorOn });
     this.context.toggleTheme();
   }
-  // componentDidMount() {
-  // }
-
-  // componentDidUpdate(prevProps) {
-  // }
-
-  // setTextOnMonitor() {
-  //   if (this.refs["typingArea"]) {
-  //     this.refs["typingArea"].innerHTML =
-  //       "<pre>" + this.props.screenText + "</pre>";
-  //   }
-  // }
 
   render() {
     let screenTextDisplay;
     if (this.state.isMonitorOn) {
       screenTextDisplay = (
-        <span>
-          <span ref="typingArea">
-            <pre>{this.props.screenText}</pre>
-          </span>
-          <span className="cursorSpan">|</span>
-        </span>
+        <>
+          <div id="os-typing-area" className="typing-area">
+            <pre>{this.props.screenText}_</pre>
+          </div>
+        </>
       );
     }
     return (
       <div className="monitor">
         <div className="monitor__bezel">
-          <div className="display" onKeyDown={(e)=>{this.props.onType(e)}}>{screenTextDisplay}</div>
+          <div
+            className="display"
+            tabIndex="0"
+            onKeyDown={(event) => {
+              event.preventDefault();
+              event.persist();
+              this.props.onType(event);
+              var element = document.getElementById("os-typing-area");
+              element.scrollTop = element.scrollHeight;
+            }}
+          >
+            {screenTextDisplay}
+          </div>
         </div>
+
         <div className="monitor__bezel-bottom">
           <button
             className={

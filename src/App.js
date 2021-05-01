@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 
   setScreen() {
-    console.log(window);
     if (window.innerWidth < 576) {
       this.setState({ isMobile: true });
     }
@@ -38,7 +37,6 @@ class App extends React.Component {
 
   toggleMenu() {
     this.setState({ showMenu: !this.state.showMenu });
-    console.log(JSON.stringify(this.state));
   }
 
   /**

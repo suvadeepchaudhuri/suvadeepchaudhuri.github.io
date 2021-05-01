@@ -19,6 +19,26 @@ export default class Keyboard extends Component {
     // this.greetUser();
   }
 
+  greetings = [
+    "Hi there!",
+    "Hasta la vista, baby!",
+    "You had me at hello.",
+    "Welcome!",
+    "Hope your day has been great so far..",
+    "Mischief Managed!",
+    "Look, a quick brown fox!",
+    "It's alive! It's alive!",
+    "May the force be with you.",
+    "Wit beyond measure is mans greatest treasure.",
+    "Scratches at level 6 with deeper grooves at 7",
+    "Show me the money",
+    "I'll be back!",
+    "A martini. Shaken, not stirred.",
+    "Houston, we have a problem.",
+    "Dobby is free!",
+    "I solemnly swear I am up to no good.",
+  ];
+
   initializeSpecialCharacterReferenceMap() {
     this.specialCharacterReferenceMap = new Map();
     let _this = this;
@@ -47,7 +67,9 @@ export default class Keyboard extends Component {
   }
 
   async typeWelcomeMessage() {
-    let welcomeString = "Hello there! Hope you're doing good!";
+    let welcomeString = this.greetings[
+      Math.floor(Math.random() * this.greetings.length)
+    ];
     let _this = this;
     var alpha = /^[a-zA-Z]+$/;
     for (let i = 0; i < welcomeString.length; i++) {
@@ -56,10 +78,10 @@ export default class Keyboard extends Component {
         currentChar.match(alpha) &&
         currentChar.toUpperCase() === currentChar
       ) {
-        await this.resolveAfterTimeout("shift");
-        await this.resolveAfterTimeout(currentChar.toLowerCase());
+        await this.resolveAfterTimeout("shift", 100);
+        await this.resolveAfterTimeout(currentChar.toLowerCase(), 100);
       } else {
-        await this.resolveAfterTimeout(currentChar.toLowerCase());
+        await this.resolveAfterTimeout(currentChar.toLowerCase(), 100);
       }
     }
   }
@@ -84,7 +106,7 @@ export default class Keyboard extends Component {
         }, timeout);
       });
     }
-    return new Promise.resolve();
+    return new Promise((resolve) => {});
   }
 
   backlitColor = "#39FF96";
@@ -103,28 +125,6 @@ export default class Keyboard extends Component {
   shiftKeyRef = "button_shift";
   isCapsEnabled = false;
   capsKeyRef = "button_caps";
-
-  // executeKeyboardLightEffect(context, value) {
-  //   console.log(this.refs[context]);
-  // if (value === "1 !") {
-  //   let _this = this;
-  //   let i = 1;
-  //   let lightupKeys = [];
-  //   while (i < 10) {
-  //     let contextVal = "button_" + i;
-  //     lightupKeys.push(_this.refs[contextVal]);
-  //     setTimeout(() => {
-  //       _this.flashKey(_this.refs[contextVal], 100);
-  //     }, 300);
-  //     i++;
-  //   }
-  //   // this.execSequentially(lightupKeys, (item) =>
-  //   //   setTimeout(() => {
-  //   //     _this.flashKey(item);
-  //   //   }, 500)
-  //   // );
-  // }
-  // }
 
   async executeKeyboardLightEffect(context, value) {
     if (value === "1 !") {
@@ -197,11 +197,13 @@ export default class Keyboard extends Component {
           this.activateKey(this.capsKeyRef);
         }
         break;
+      case "delete":
+      case "backspace":
       case "del":
         if (this.typedText.length > 0) {
           this.typedText = this.typedText.slice(0, this.typedText.length - 1);
         }
-        this.flashKey(this.refs[context]);
+        this.flashKey(this.refs["button_del"]);
         break;
       case "enter":
         this.typedText += "\n";
@@ -242,23 +244,28 @@ export default class Keyboard extends Component {
         this.flashKey(this.refs[context]);
         break;
       default:
-        if (this.isShiftEnabled) {
-          if (value.includes(" ")) {
-            this.typedText += value.split(" ")[1];
+        if (value.length === 1 || value.includes(" ")) {
+          if (this.isShiftEnabled) {
+            if (value.includes(" ")) {
+              this.typedText += value.split(" ")[1];
+            } else {
+              this.typedText += value.toUpperCase();
+            }
+            // reset shift
+            this.isShiftEnabled = false;
+            this.deActivateKey(this.shiftKeyRef);
           } else {
-            this.typedText += value.toUpperCase();
+            if (value.includes(" ")) {
+              this.typedText += value.split(" ")[0];
+            } else {
+              this.typedText += this.isCapsEnabled
+                ? value.toUpperCase()
+                : value;
+            }
           }
-          // reset shift
-          this.isShiftEnabled = false;
-          this.deActivateKey(this.shiftKeyRef);
-        } else {
-          if (value.includes(" ")) {
-            this.typedText += value.split(" ")[0];
-          } else {
-            this.typedText += this.isCapsEnabled ? value.toUpperCase() : value;
-          }
+          this.flashKey(this.refs[context]);
         }
-        this.flashKey(this.refs[context]);
+
         break;
     }
     this.setTextOnMonitor();
@@ -266,23 +273,11 @@ export default class Keyboard extends Component {
 
   setTextOnMonitor() {
     this.props.setScreenText(this.typedText);
-    // if(this.refs["typingArea"]) {
-    //   this.refs["typingArea"].innerHTML = "<pre>" + this.typedText + "</pre>";
-    // }
   }
 
   handleKeyDown(event, callback) {
-    console.log(" key pressed", event.key.trim());
-    console.log(event.altKey);
-    console.log(event.charCode);
-    console.log(event.ctrlKey);
-    console.log(event.metaKey);
-    console.log(event.target);
-    console.log(event.shiftKey);
-    console.log(event.currentTarget);
-    console.log(event.keyCode);
-    console.log(event.detail);
-    this.keyPressAction("button_" + event.key.trim(), event.key);
+    const buttonValue = event.key === " " ? "space" : event.key.trim();
+    this.keyPressAction("button_" + buttonValue, buttonValue);
   }
 
   render() {
