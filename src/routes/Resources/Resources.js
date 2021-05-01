@@ -8,7 +8,7 @@ export default function Resources() {
       {(globalContextProps) => {
         return (
           <div className={"resources " + globalContextProps.theme}>
-              This space will soon be updated with interesting things.
+              This space will soon be updated with interesting things like blog posts, sports results, travel plans and games. But till then, enjoy the rest. <br/> -The Architect
           </div>
         );
       }}

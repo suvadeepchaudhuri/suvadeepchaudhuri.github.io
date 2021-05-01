@@ -29,12 +29,12 @@ export default function About() {
                   workshops.
                   <br />
                   <br />
-                  Outside of tech, he loves football(soccer) and follows the top
+                  Outside of tech, he loves football (soccer) and follows the top
                   European football leagues.
                   <br />
                   <br />
                   He's passionate about motor racing and catches most of the
-                  MotoGP and F1 races early on raceday(Sunday mornings).
+                  MotoGP and F1 races early on raceday (Sunday mornings).
                   <br />
                   <br />
                   He also loves cooking and can be found in the kitchen
@@ -53,6 +53,13 @@ export default function About() {
                     alt="Profile Picture"
                     src={process.env.PUBLIC_URL + "/assets/prof_m.jpg"}
                   />
+                </div>
+                <div className={"connect "+ globalContextProps.theme}>
+                  <a className="linkedin connect-icon" target="_blank" href="https://www.linkedin.com/in/suvadeepchaudhuri" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"></a>
+                  <a className="insta connect-icon" target="_blank" href="https://www.instagram.com/suvadeepchaudhuri" aria-label="Connect on Instagram" title="Connect on Instagram"></a>
+                  <a className="facebook connect-icon" target="_blank" href="https://www.facebook.com/suvadeep.chaudhuri" aria-label="Connect on Facebook" title="Connect on Facebook"></a>
+                  <a className="twitter connect-icon" target="_blank" href="https://twitter.com/suvadeepch" aria-label="Connect on Twitter" title="Connect on Twitter"></a>
+                  <a className="mail connect-icon" target="_blank" href="mailto:suvadeep.1905@gmail.com" aria-label="Connect via email" title="Connect via email"></a>
                 </div>
               </div>
             </div>

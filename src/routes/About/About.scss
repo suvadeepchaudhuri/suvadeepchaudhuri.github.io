@@ -81,6 +81,66 @@
       .connect {
         display: flex;
         flex-flow: row;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+
+        &-icon {
+          width: 26px;
+          height: 26px;
+          margin: 0 15px;
+          border: none;
+          cursor: pointer;
+          background-repeat: no-repeat;
+
+          &:hover {
+            transform: scale(1.2);
+            transition: all 0.1s;
+          }
+
+        }
+
+        .insta {
+          background-image: url(../../icons/dark/instagram.svg);
+        }
+
+        .linkedin {
+          background-image: url(../../icons/dark/linkedin.svg);
+        }
+
+        .facebook {
+          background-image: url(../../icons/dark/facebook.svg);
+        }
+
+        .twitter {
+          background-image: url(../../icons/dark/twitter.svg);
+        }
+
+        .mail {
+          background-image: url(../../icons/dark/email.svg);
+        }
+
+        &.dark {
+          .insta {
+            background-image: url(../../icons/light/instagram.svg);
+          }
+
+          .linkedin {
+            background-image: url(../../icons/light/linkedin.svg);
+          }
+
+          .facebook {
+            background-image: url(../../icons/light/facebook.svg);
+          }
+
+          .twitter {
+            background-image: url(../../icons/light/twitter.svg);
+          }
+
+          .mail {
+            background-image: url(../../icons/light/email.svg);
+          }
+        }
       }
     }
   }

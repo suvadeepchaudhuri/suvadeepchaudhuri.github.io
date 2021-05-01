@@ -29,8 +29,8 @@ export default class Keyboard extends Component {
     "Look, a quick brown fox!",
     "It's alive! It's alive!",
     "May the force be with you.",
-    "Wit beyond measure is mans greatest treasure.",
-    "Scratches at level 6 with deeper grooves at 7",
+    "Wit beyond measure is...",
+    "Scratches at level 6",
     "Show me the money",
     "I'll be back!",
     "A martini. Shaken, not stirred.",
@@ -184,7 +184,6 @@ export default class Keyboard extends Component {
    * @param {string} value
    */
   keyPressAction(context, value) {
-    value = value.trim().toLowerCase();
     this.executeKeyboardLightEffect(context, value);
     switch (value) {
       case "caps":
@@ -206,6 +205,7 @@ export default class Keyboard extends Component {
         this.flashKey(this.refs["button_del"]);
         break;
       case "enter":
+        console.log(context);
         this.typedText += "\n";
         this.flashKey(this.refs[context]);
         break;
@@ -276,7 +276,7 @@ export default class Keyboard extends Component {
   }
 
   handleKeyDown(event, callback) {
-    const buttonValue = event.key === " " ? "space" : event.key.trim();
+    const buttonValue = event.key === " " ? "space" : event.key.trim().toLowerCase();
     this.keyPressAction("button_" + buttonValue, buttonValue);
   }
 
