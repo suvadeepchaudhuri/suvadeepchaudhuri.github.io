@@ -20,7 +20,7 @@ export default function About() {
                   <a href="https://www.gallup.com/access" target="_blank">
                     Gallup Access
                   </a>{" "}
-                  platform cooler than ever.
+                  platform better than ever.
                 </div>
                 <div className="intro__text">
                   When not thinking about Gallup, Suvadeep likes to explore
