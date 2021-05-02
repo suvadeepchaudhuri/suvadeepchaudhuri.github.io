@@ -159,7 +159,7 @@ export default class Skills extends React.Component {
                 ))}
               </div>
               <a
-                href="https://github.com/suvadeepchaudhuri/MyResume/raw/master/Suvadeep_OPR_RJ.pdf"
+                href="https://github.com/suvadeepchaudhuri/MyResume/raw/master/Suvadeep_OPR.pdf"
                 target="_blank"
                 rel="noopener noreferrer" 
                 download="Suvadeep_OPR_RJ.pdf"
