@@ -1,0 +1,21 @@
+<svg width="160" height="80" xmlns="http://www.w3.org/2000/svg">
+ <g class="brick-wall">
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="79.59679" y1="59.69155" x2="159.59679" y2="59.69155" id="svg_91" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="79.59679" y1="79.69155" x2="159.59679" y2="79.69155" id="svg_92" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="119.59679" y1="59.69155" x2="119.59679" y2="79.69155" id="svg_93" stroke-linejoin="null" stroke-linecap="null"/>
+  <line stroke="gray" fill="none" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="79.82935" y1="59.4937" x2="79.82935" y2="40.38922" id="svg_94" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="79.82935" y1="19.69158" x2="159.82935" y2="19.69158" id="svg_96" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="79.82935" y1="39.69158" x2="159.82935" y2="39.69158" id="svg_97" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="119.82935" y1="19.69158" x2="119.82935" y2="39.69158" id="svg_98" stroke-linejoin="null" stroke-linecap="null"/>
+  <line stroke="gray" fill="none" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="80.06191" y1="19.49373" x2="80.06191" y2="0.38926" id="svg_99" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="159.82935" y1="39.69158" x2="159.82935" y2="59.69158" id="svg_100" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="-0.56202" y1="59.69155" x2="79.43798" y2="59.69155" id="svg_101" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="-0.56202" y1="79.69155" x2="79.43798" y2="79.69155" id="svg_102" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="39.43798" y1="59.69155" x2="39.43798" y2="79.69155" id="svg_103" stroke-linejoin="null" stroke-linecap="null"/>
+  <line stroke="gray" fill="none" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="-0.32946" y1="59.4937" x2="-0.32946" y2="40.38922" id="svg_104" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="-0.32946" y1="19.69158" x2="79.67054" y2="19.69158" id="svg_106" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="-0.32946" y1="39.69158" x2="79.67054" y2="39.69158" id="svg_107" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="gray" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="39.67054" y1="19.69158" x2="39.67054" y2="39.69158" id="svg_108" stroke-linejoin="null" stroke-linecap="null"/>
+  <line stroke="gray" fill="none" stroke-width="0.5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" x1="-0.0969" y1="19.49373" x2="-0.0969" y2="0.38926" id="svg_109" stroke-linejoin="null" stroke-linecap="null"/>
+ </g>
+</svg>

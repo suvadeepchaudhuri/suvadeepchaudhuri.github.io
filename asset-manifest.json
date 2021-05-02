@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/suvadeepchaudhuri.github.io/static/css/main.5994e2e0.chunk.css",
+    "main.js": "/suvadeepchaudhuri.github.io/static/js/main.35950174.chunk.js",
+    "main.js.map": "/suvadeepchaudhuri.github.io/static/js/main.35950174.chunk.js.map",
+    "runtime-main.js": "/suvadeepchaudhuri.github.io/static/js/runtime-main.33c9286b.js",
+    "runtime-main.js.map": "/suvadeepchaudhuri.github.io/static/js/runtime-main.33c9286b.js.map",
+    "static/js/2.4c9cc9d0.chunk.js": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js",
+    "static/js/2.4c9cc9d0.chunk.js.map": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js.map",
+    "index.html": "/suvadeepchaudhuri.github.io/index.html",
+    "precache-manifest.3162baa8162b70a83aac7faa96d94876.js": "/suvadeepchaudhuri.github.io/precache-manifest.3162baa8162b70a83aac7faa96d94876.js",
+    "service-worker.js": "/suvadeepchaudhuri.github.io/service-worker.js",
+    "static/css/main.5994e2e0.chunk.css.map": "/suvadeepchaudhuri.github.io/static/css/main.5994e2e0.chunk.css.map",
+    "static/js/2.4c9cc9d0.chunk.js.LICENSE.txt": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js.LICENSE.txt",
+    "static/media/HomeIllustration.svg": "/suvadeepchaudhuri.github.io/static/media/HomeIllustration.19eb7fd5.svg",
+    "static/media/System.scss": "/suvadeepchaudhuri.github.io/static/media/brick.5b9c8d4d.svg",
+    "static/media/Skills.scss": "/suvadeepchaudhuri.github.io/static/media/download_l.62f29718.svg",
+    "static/media/About.scss": "/suvadeepchaudhuri.github.io/static/media/twitter.f870653c.svg",
+    "static/media/theme_icon.fc6455ac.svg": "/suvadeepchaudhuri.github.io/static/media/theme_icon.fc6455ac.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.33c9286b.js",
+    "static/js/2.4c9cc9d0.chunk.js",
+    "static/css/main.5994e2e0.chunk.css",
+    "static/js/main.35950174.chunk.js"
+  ]
+}
