@@ -182,6 +182,7 @@ export default class Keyboard extends Component {
    * @param {string} value
    */
   keyPressAction(context, value) {
+    value = value.toLowerCase();
     this.executeKeyboardLightEffect(context, value);
     switch (value) {
       case "caps":
