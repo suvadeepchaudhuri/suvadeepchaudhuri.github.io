@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/suvadeepchaudhuri.github.io/static/css/main.5994e2e0.chunk.css",
-    "main.js": "/suvadeepchaudhuri.github.io/static/js/main.a6b5d9d1.chunk.js",
-    "main.js.map": "/suvadeepchaudhuri.github.io/static/js/main.a6b5d9d1.chunk.js.map",
+    "main.js": "/suvadeepchaudhuri.github.io/static/js/main.59175115.chunk.js",
+    "main.js.map": "/suvadeepchaudhuri.github.io/static/js/main.59175115.chunk.js.map",
     "runtime-main.js": "/suvadeepchaudhuri.github.io/static/js/runtime-main.33c9286b.js",
     "runtime-main.js.map": "/suvadeepchaudhuri.github.io/static/js/runtime-main.33c9286b.js.map",
     "static/js/2.4c9cc9d0.chunk.js": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js",
     "static/js/2.4c9cc9d0.chunk.js.map": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js.map",
     "index.html": "/suvadeepchaudhuri.github.io/index.html",
-    "precache-manifest.3e521ffee01c2b60e188009de796f395.js": "/suvadeepchaudhuri.github.io/precache-manifest.3e521ffee01c2b60e188009de796f395.js",
+    "precache-manifest.1aa66491296c5ed8c9e7038620f5d28d.js": "/suvadeepchaudhuri.github.io/precache-manifest.1aa66491296c5ed8c9e7038620f5d28d.js",
     "service-worker.js": "/suvadeepchaudhuri.github.io/service-worker.js",
     "static/css/main.5994e2e0.chunk.css.map": "/suvadeepchaudhuri.github.io/static/css/main.5994e2e0.chunk.css.map",
     "static/js/2.4c9cc9d0.chunk.js.LICENSE.txt": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js.LICENSE.txt",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.33c9286b.js",
     "static/js/2.4c9cc9d0.chunk.js",
     "static/css/main.5994e2e0.chunk.css",
-    "static/js/main.a6b5d9d1.chunk.js"
+    "static/js/main.59175115.chunk.js"
   ]
 }
