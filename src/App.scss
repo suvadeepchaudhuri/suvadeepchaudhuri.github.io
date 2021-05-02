@@ -23,11 +23,9 @@
 }
 
 .app-header {
-  // background-color: white;
   margin-bottom: 50px;
   padding: 5px;
   width: 100%;
-  // position: relative;
 
   .btn-menu {
     border: 0;
@@ -52,6 +50,7 @@
     // Rotate Into X With Menu Lines
     &.close {
       transform: rotate(180deg);
+      position: fixed;
 
       .btn-line {
         // Line 1 - Rotate
@@ -114,26 +113,6 @@ a {
   margin-right: 5px;
 
   .app-controls {
-    // button {
-    //   width: 25px;
-    //   height: 25px;
-    //   display: block;
-    //   position: relative;
-    //   border: none;
-
-    //   svg {
-    //     @include easeOut(0.2s);
-    //     &.light {
-    //       fill: gray;
-    //     }
-    //     &.dark {
-    //       fill: #333;
-    //       stroke: white;
-    //       stroke-width: 0.5;
-    //       transform: rotate(180deg);
-    //     }
-    //   }
-    // }
   }
 
   .home-menu {
@@ -178,11 +157,11 @@ a {
 
 // Drawer mode navigation menu
 .app-navigation--drawer {
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 999;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: $primary-color;
   opacity: 0.8;
   @include easeOut(0.2s);
@@ -219,24 +198,28 @@ a {
     list-style: none;
     font-size: 1rem;
     width: 100%;
-    height: 50%;
+    height: 30%;
     text-transform: uppercase;
     font-weight: lighter;
     color: white;
     padding: 0;
 
+    li {
+      width: 50%;
+    }
+
     &__link {
       display: block;
-      padding: 10px 15px;
+      padding: 10px 0px;
       width: 100%;
       text-align: center;
 
       &:hover {
-        box-shadow: 0px 2px 0px 0px lightgreen;
+        box-shadow: 0px 2px 0px 0px green;
       }
 
       &-active {
-        box-shadow: 0px 2px 0px 0px darkgreen;
+        box-shadow: 0px 2px 0px 0px lightgreen;
         font-weight: 800;
       }
     }

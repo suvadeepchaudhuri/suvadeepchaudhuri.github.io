@@ -20,7 +20,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.toggleMenu = this.toggleMenu.bind(this);
-
     this.state = { isMobile: false, showMenu: false };
   }
 
@@ -71,7 +70,7 @@ class App extends React.Component {
         <GlobalConsumer>
           {(globalContextProps) => {
             return (
-              <div className={"app " + globalContextProps.theme}>
+              <div className={"app " + globalContextProps.theme }>
                 <Router>
                   <header className="app-header">
                     {getMenuButton(globalContextProps.theme)}
