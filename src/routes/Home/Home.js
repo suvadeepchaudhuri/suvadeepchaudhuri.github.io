@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import CuboidText from "../../components/CuboidText/CuboidText";
 import System from "../../components/System/System";
 import GameConsole from "../../components/GameConsole/GameConsole";
@@ -44,7 +44,6 @@ export default class Home extends React.Component {
                 </div>
               </section>
               <button
-                role="button"
                 className={"launch-game " + globalContextProps.theme}
                 onClick={this.toggleGame.bind(this)}
               >

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Keyboard.scss";
 import { specialCharReferenceMap } from "./KeyMapping";
-import { findDOMNode } from "react-dom";
 
 export default class Keyboard extends Component {
   constructor(props) {

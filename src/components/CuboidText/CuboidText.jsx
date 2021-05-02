@@ -1,5 +1,5 @@
 import "./CuboidText.scss";
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function CuboidText(props) {
   let frontTerm,

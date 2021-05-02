@@ -13,11 +13,11 @@ export default function About() {
               <div className="intro">
                 <div className="intro__title">
                   Suvadeep Chaudhuri currently develops really cool software for{" "}
-                  <a href="https://www.gallup.com" target="_blank">
+                  <a href="https://www.gallup.com" target="_blank" rel="noopener noreferrer">
                     Gallup
                   </a>{" "}
                   and is making the{" "}
-                  <a href="https://www.gallup.com/access" target="_blank">
+                  <a href="https://www.gallup.com/access" target="_blank" rel="noopener noreferrer">
                     Gallup Access
                   </a>{" "}
                   platform better than ever.
@@ -55,11 +55,11 @@ export default function About() {
                   />
                 </div>
                 <div className={"connect "+ globalContextProps.theme}>
-                  <a className="linkedin connect-icon" target="_blank" href="https://www.linkedin.com/in/suvadeepchaudhuri" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"></a>
-                  <a className="insta connect-icon" target="_blank" href="https://www.instagram.com/suvadeepchaudhuri" aria-label="Connect on Instagram" title="Connect on Instagram"></a>
-                  <a className="facebook connect-icon" target="_blank" href="https://www.facebook.com/suvadeep.chaudhuri" aria-label="Connect on Facebook" title="Connect on Facebook"></a>
-                  <a className="twitter connect-icon" target="_blank" href="https://twitter.com/suvadeepch" aria-label="Connect on Twitter" title="Connect on Twitter"></a>
-                  <a className="mail connect-icon" target="_blank" href="mailto:suvadeep.1905@gmail.com" aria-label="Connect via email" title="Connect via email"></a>
+                  <a className="linkedin connect-icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/suvadeepchaudhuri" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"></a>
+                  <a className="insta connect-icon" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/suvadeepchaudhuri" aria-label="Connect on Instagram" title="Connect on Instagram"></a>
+                  <a className="facebook connect-icon" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/suvadeep.chaudhuri" aria-label="Connect on Facebook" title="Connect on Facebook"></a>
+                  <a className="twitter connect-icon" target="_blank" rel="noopener noreferrer" href="https://twitter.com/suvadeepch" aria-label="Connect on Twitter" title="Connect on Twitter"></a>
+                  <a className="mail connect-icon" target="_blank" rel="noopener noreferrer" href="mailto:suvadeep.1905@gmail.com" aria-label="Connect via email" title="Connect via email"></a>
                 </div>
               </div>
             </div>

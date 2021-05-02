@@ -161,6 +161,7 @@ export default class Skills extends React.Component {
               <a
                 href="https://github.com/suvadeepchaudhuri/MyResume/raw/master/Suvadeep_OPR_RJ.pdf"
                 target="_blank"
+                rel="noopener noreferrer" 
                 download="Suvadeep_OPR_RJ.pdf"
                 className="download-resume"
                 alt="Download Resume"

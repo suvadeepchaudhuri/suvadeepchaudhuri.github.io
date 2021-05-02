@@ -8,7 +8,7 @@ export const resume = {
         { name: "C", level: 5, scale: 5 },
         { name: "C#", level: 5, scale: 5 },
         { name: "PL/SQL", level: 5, scale: 5 },
-        { name: "Python", level: 5, scale: 5 },
+        { name: "Python", level: 5, scale: 5 }
       ],
     },
     {
@@ -19,7 +19,7 @@ export const resume = {
         { name: "D3", level: 5, scale: 5 },
         { name: "HTML", level: 5, scale: 5 },
         { name: "CSS", level: 5, scale: 5 },
-        { name: "REST", level: 5, scale: 5 },
+        { name: "REST", level: 5, scale: 5 }
       ],
     },
     {
@@ -27,7 +27,7 @@ export const resume = {
       items: [
         { name: "VBScript", level: 5, scale: 5 },
         { name: "Windows Batch", level: 5, scale: 5 },
-        { name: "Powershell", level: 5, scale: 5 },
+        { name: "Powershell", level: 5, scale: 5 }
       ],
     },
     {
@@ -38,7 +38,7 @@ export const resume = {
         { name: "Linux", level: 5, scale: 5 },
         { name: "IntelliJ", level: 5, scale: 5 },
         { name: "VSCode", level: 5, scale: 5 },
-        { name: "Git", level: 5, scale: 5 },
+        { name: "Git", level: 5, scale: 5 }
       ],
     },
     {
