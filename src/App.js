@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
-import { ReactComponent as ThemeIcon } from "./theme_icon.svg";
+import { ReactComponent as ThemeIcon } from "./icons/theme_icon.svg";
 import "./styles/common.scss";
 import "./App.scss";
 import {

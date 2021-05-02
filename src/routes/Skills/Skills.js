@@ -1,8 +1,6 @@
 import React from "react";
 import "./Skills.scss";
 import { resume } from "./resume";
-import Avatar from "@material-ui/core/Avatar";
-import Chip from "@material-ui/core/Chip";
 import { GlobalConsumer } from "../../context-stores/global-store";
 import moment from "moment";
 import Mark from "mark.js";
