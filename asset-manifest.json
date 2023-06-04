@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/suvadeepchaudhuri.github.io/static/css/main.5994e2e0.chunk.css",
-    "main.js": "/suvadeepchaudhuri.github.io/static/js/main.59175115.chunk.js",
-    "main.js.map": "/suvadeepchaudhuri.github.io/static/js/main.59175115.chunk.js.map",
+    "main.css": "/suvadeepchaudhuri.github.io/static/css/main.a46cc038.chunk.css",
+    "main.js": "/suvadeepchaudhuri.github.io/static/js/main.7c2d764b.chunk.js",
+    "main.js.map": "/suvadeepchaudhuri.github.io/static/js/main.7c2d764b.chunk.js.map",
     "runtime-main.js": "/suvadeepchaudhuri.github.io/static/js/runtime-main.33c9286b.js",
     "runtime-main.js.map": "/suvadeepchaudhuri.github.io/static/js/runtime-main.33c9286b.js.map",
-    "static/js/2.4c9cc9d0.chunk.js": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js",
-    "static/js/2.4c9cc9d0.chunk.js.map": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js.map",
+    "static/js/2.2ac279db.chunk.js": "/suvadeepchaudhuri.github.io/static/js/2.2ac279db.chunk.js",
+    "static/js/2.2ac279db.chunk.js.map": "/suvadeepchaudhuri.github.io/static/js/2.2ac279db.chunk.js.map",
     "index.html": "/suvadeepchaudhuri.github.io/index.html",
-    "precache-manifest.1aa66491296c5ed8c9e7038620f5d28d.js": "/suvadeepchaudhuri.github.io/precache-manifest.1aa66491296c5ed8c9e7038620f5d28d.js",
+    "precache-manifest.1c3258ada9364d1092d961203156b6ee.js": "/suvadeepchaudhuri.github.io/precache-manifest.1c3258ada9364d1092d961203156b6ee.js",
     "service-worker.js": "/suvadeepchaudhuri.github.io/service-worker.js",
-    "static/css/main.5994e2e0.chunk.css.map": "/suvadeepchaudhuri.github.io/static/css/main.5994e2e0.chunk.css.map",
-    "static/js/2.4c9cc9d0.chunk.js.LICENSE.txt": "/suvadeepchaudhuri.github.io/static/js/2.4c9cc9d0.chunk.js.LICENSE.txt",
+    "static/css/main.a46cc038.chunk.css.map": "/suvadeepchaudhuri.github.io/static/css/main.a46cc038.chunk.css.map",
+    "static/js/2.2ac279db.chunk.js.LICENSE.txt": "/suvadeepchaudhuri.github.io/static/js/2.2ac279db.chunk.js.LICENSE.txt",
     "static/media/HomeIllustration.svg": "/suvadeepchaudhuri.github.io/static/media/HomeIllustration.19eb7fd5.svg",
-    "static/media/System.scss": "/suvadeepchaudhuri.github.io/static/media/brick.5b9c8d4d.svg",
-    "static/media/Skills.scss": "/suvadeepchaudhuri.github.io/static/media/download_l.62f29718.svg",
+    "static/media/System.scss": "/suvadeepchaudhuri.github.io/static/media/brick.a10da1a0.svg",
+    "static/media/Skills.scss": "/suvadeepchaudhuri.github.io/static/media/download_l.305e561e.svg",
     "static/media/About.scss": "/suvadeepchaudhuri.github.io/static/media/twitter.f870653c.svg",
     "static/media/theme_icon.fc6455ac.svg": "/suvadeepchaudhuri.github.io/static/media/theme_icon.fc6455ac.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.33c9286b.js",
-    "static/js/2.4c9cc9d0.chunk.js",
-    "static/css/main.5994e2e0.chunk.css",
-    "static/js/main.59175115.chunk.js"
+    "static/js/2.2ac279db.chunk.js",
+    "static/css/main.a46cc038.chunk.css",
+    "static/js/main.7c2d764b.chunk.js"
   ]
 }
