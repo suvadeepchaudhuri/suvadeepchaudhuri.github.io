@@ -147,7 +147,6 @@ class App extends React.Component {
                     </nav>
                   </header>
                   <Redirect exact from="/" to="/home" />
-                  <Redirect exact from="/about" to="/about" />
 
                   <Switch>
                     <Route exact path="/home">
