@@ -13,17 +13,17 @@ export default function About() {
               <div className="intro">
                 <div className="intro__title">
                   Suvadeep Chaudhuri currently develops really cool software for{" "}
-                  <a href="https://www.gallup.com" target="_blank" rel="noopener noreferrer">
-                    Gallup
+                  <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer">
+                    Microsoft
                   </a>{" "}
                   and is making the{" "}
-                  <a href="https://www.gallup.com/access" target="_blank" rel="noopener noreferrer">
-                    Gallup Access
+                  <a href="https://dynamics.microsoft.com/en-us/customer-service/overview/" target="_blank" rel="noopener noreferrer">
+                    D365 Customer Service Omnichannel
                   </a>{" "}
                   platform better than ever.
                 </div>
                 <div className="intro__text">
-                  When not thinking about Gallup, Suvadeep likes to explore
+                  When not thinking about Omnichannel, Suvadeep likes to explore
                   everything new there is in tech. You'll often find him
                   tinkering with new tools, building something cool or attending
                   workshops.

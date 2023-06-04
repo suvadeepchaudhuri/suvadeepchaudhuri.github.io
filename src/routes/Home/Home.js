@@ -40,7 +40,7 @@ export default class Home extends React.Component {
               <section className="info-band center middle">
                 <div className="info-text right">
                   <CuboidText terms={this.roles} /> I design and write software
-                  for Gallup by day.
+                  for Microsoft by day.
                 </div>
               </section>
               <button
